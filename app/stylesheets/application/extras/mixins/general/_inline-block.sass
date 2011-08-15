@@ -1,0 +1,11 @@
+= inline-block($align: top)
+  :zoom 1
+  :display inline
+  :display -moz-inline-box
+  :display inline-block
+  :*display inline
+  :vertical-align $align
+
+= children-inline
+  > *
+    +inline-block

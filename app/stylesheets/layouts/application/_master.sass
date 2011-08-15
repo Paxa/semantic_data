@@ -1,0 +1,21 @@
+/* master
+$base: 12px
+$footer: $baseline * 2.5
+
+html
+  :background #fff
+  :height 100%
+  :font
+    :family Arial
+    :size 0.9em
+
+html, html a
+  :color $grey
+
+#container
+  :background-color #fff
+  :position relative
+  +grid-container
+  :min-height 100%
+  > .hfooter
+    :height $footer + $baseline

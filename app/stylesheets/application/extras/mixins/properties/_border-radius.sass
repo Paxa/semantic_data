@@ -1,0 +1,17 @@
+$main_radius: 3px !default
+
+= border-radius($radius: $main_radius, $y: false, $x: false)
+  @if $x
+    :-moz-border-radius-#{$y}#{$x} $radius
+    :-o-border-radius-#{$y}-#{$x} $radius
+    :-khtml-border-radius-#{$y}-#{$x} $radius
+    :-ms-border-radius-#{$y}-#{$x} $radius
+    :-webkit-border-#{$y}-#{$x}-radius $radius
+    :border-#{$y}-#{$x}-radius $radius
+  @else
+    :-moz-border-radius $radius
+    :-o-border-radius $radius
+    :-ms-border-radius $radius
+    :-khtml-border-radius $radius
+    :-webkit-border-radius $radius
+    :border-radius $radius

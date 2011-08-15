@@ -1,0 +1,22 @@
+= gradient($from, $to)
+  :background
+    :color $from
+  :filter "progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}')"
+  :background -webkit-gradient(linear, left top, left bottom, from($from), to($to))
+  :background -moz-linear-gradient(top,  $from,  $to)
+  :background linear-gradient(top,  $from,  $to)
+
+= gradient-border($from, $to)
+  :border
+    :color $from
+  :border
+    :color -webkit-gradient(linear, left top, left bottom, from($from), to($to))
+  :border
+    :color -moz-linear-gradient(top,  $from,  $to)
+  :border
+    :color linear-gradient(top,  $from,  $to)
+
+= color-gradient($from, $to)
+  :color -webkit-gradient(linear, left top, left bottom, from($from), to($to))
+  :color -moz-linear-gradient(top,  $from,  $to)
+  :color linear-gradient(top,  $from,  $to)

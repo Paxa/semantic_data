@@ -1,0 +1,12 @@
+$baseline: 16px !default
+
+= line-height($height, $baseline: $baseline, $auto-height: false)
+  @if $auto-height == false
+    :height $baseline
+  :padding
+    :top ($height - $baseline) / 2
+    :bottom ($height - $baseline) / 2
+
+= line-height-fix($height: $baseline)
+  :line-height $height + 1
+  :*line-height $height

@@ -1,0 +1,44 @@
+/* button
+$button: $baseline
+$big_button: $baseline * 1.5
+
+$button_white: #fffcfc
+
+= button($height: $button)
+  :height $height
+  :line-height $height - 2
+  :padding
+    :left $ninesixty_gutter_width
+    :right $ninesixty_gutter_width
+  :font
+    :family AwconQuerorCarved, Arial
+  :text
+    :transform uppercase
+  +border-radius(3px)
+  +box-shadow(inset 0 -2px 0 rgba(0, 0, 0, 0.25))
+  +hover-opacity(0.9, true)
+  &.is-active
+    :margin
+      :top 1px
+    :height $height - 1
+    +box-shadow(inset 0 -1px 0 rgba(0, 0, 0, 0.25))
+
+= grey-button
+  +button
+  :color $button_white
+  :background $grey
+
+= black-button
+  +button
+  :color $white
+  :background #333333
+
+= big-button
+  +button($big_button)
+  :font
+    :size 16px
+
+= big-green-button
+  +big-button
+  :color $white
+  :background $green

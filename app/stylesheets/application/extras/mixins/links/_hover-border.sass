@@ -1,0 +1,15 @@
+= hover-border($color: $base_color, $height: $baseline, $style: solid)
+  :height $height
+  &:hover
+    :height $height - 1
+    :border
+      :bottom 1px $style $color
+
+= hover-dotted($color: $base_color, $height: $baseline)
+  +hover-border($color, $height, dotted)
+
+= hover-dashed($color: $base_color, $height: $baseline)
+  +hover-border($color, $height, dashed)
+
+= hover-solid($color: $base_color, $height: $baseline)
+  +hover-border($color, $height, solid)

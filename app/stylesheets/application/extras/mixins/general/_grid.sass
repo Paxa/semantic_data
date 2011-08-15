@@ -1,0 +1,74 @@
+$ninesixty_gutter_width: 10px !default
+$ninesixty_grid_width: 960px !default
+$ninesixty_columns: 12 !default
+
+= grid-container($width: $ninesixty_grid_width)
+  :margin
+    :left auto
+    :right auto
+  :width $width
+
+= grid-width($n, $cols: $ninesixty_columns, $gutter-width: $ninesixty_gutter_width, $gutter-padding: false)
+  :width ($ninesixty_grid_width / $cols) * $n - ($ninesixty_columns / $cols) * $gutter-width
+  @if $gutter-padding
+    :width ($ninesixty_grid_width / $cols) * $n - ($ninesixty_columns / $cols) * $gutter-width - ($ninesixty_columns / $cols) * $gutter-padding
+
+= left-grid-width($n, $cols: $ninesixty_columns, $gutter-width: $ninesixty_gutter_width, $gutter-padding: false)
+  :width ($ninesixty_grid_width - ($cols - 1) * $gutter-width) / $cols * $n + ($n - 1) * $gutter-width
+
+= grid-unit-base($gutter-width: $ninesixty_gutter_width, $cols: $ninesexity-columns, $gutter-padding: false)
+  :display inline
+  :float left
+  :margin
+    :left ($ninesixty_columns / $cols) * $gutter-width / 2
+    :right ($ninesixty_columns / $cols) * $gutter-width / 2
+  @if $gutter-padding
+    :padding
+      :left ($ninesixty_columns / $cols) * $gutter-padding / 2
+      :right ($ninesixty_columns / $cols) * $gutter-padding / 2
+
+= grid($n, $cols: $ninesixty_columns, $gutter-width: $ninesixty_gutter_width, $gutter-padding: false)
+  +grid-unit-base($gutter-width, $cols, $gutter-padding)
+  +grid-width($n, $cols, $gutter-width, $gutter-padding)
+
+= alpha
+  :margin-left 0
+
+= omega
+  :margin-right 0
+
+= grids($cols: $ninesixty_columns, $gutter-width: $ninesixty_gutter_width)
+  #{enumerate(".grid_",1,$cols)}
+    +grid-unit-base
+  @for $n from 1 through $cols
+    .grid_#{$n}
+      +grid-width($n, $cols, $gutter-width)
+
+= grid-prefix($n, $cols: $ninesixty_columns)
+  :padding-left ($ninesixty_grid_width / $cols) * $n
+
+= grid-prefixes($cols: $ninesixty_columns)
+  @for $n from 1 through $cols - 1
+    .prefix_#{$n}
+      +grid-prefix($n, $cols)
+
+= grid-suffix($n, $cols: $ninesixty_columns)
+  :padding-right ($ninesixty_grid_width / $cols) * $n
+
+= grid-suffixes($cols: $ninesixty_columns)
+  @for $n from 1 through $cols - 1
+    .suffix_#{$n}
+      +grid-suffix($n, $cols)
+
+= grid-children
+  .alpha
+    +alpha
+  .omega
+    +omega
+
+= grid-system($cols: $grid-sysytem-colums)
+  +grid-container
+  +grids($cols)
+  +grid-prefixes($cols)
+  +grid-suffixes($cols)
+  +grid-children

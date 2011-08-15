@@ -1,0 +1,24 @@
+= formatted
+  :line-height $baseline
+  > h2, > p
+    :margin
+      :top $baseline
+    +list-fix
+  > h2
+    +line-height-fix($baseline * 1.5)
+    :height $baseline * 1.5
+    :overflow hidden
+    +georgia
+    :margin
+      :bottom -5px
+  > p
+    i, span, a
+      :vertical-align top
+    i, span
+      +colors($black, $default-shadow)
+    i
+      :font
+        :size 15px
+  *:first-child
+    :margin
+      :top 0

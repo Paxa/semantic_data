@@ -1,0 +1,15 @@
+!!! 5
+%html
+  %head
+    = #render 'shared/head'
+    = stylesheet_link_tag 'layouts/application'
+    /[if IE]
+      = stylesheet_link_tag "ie"
+      = javascript_include_tag 'html5'
+    = javascript_include_tag 'compiled/includes'
+  %body
+    #container
+      = render 'shared/header'
+      = yield
+      .hfooter
+    = render 'shared/footer'

@@ -48,7 +48,19 @@ SemanticDatas::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => "welcome#index"
+  resources :articles do
+    collection do
+      get :how_google_uses
+    end
+  end
+  
+  root :to => "welcome#index"
+  
+  get "offline_tools", :to => "welcome#offline_tools"
+  get "external_resources", :to => "welcome#external_resources"
+  
+  get "get_items", :to => "parser#get_items"
+  get "parser/parse_url", :to => "parser#parse_url"
 
   # See how all your routes lay out with "rake routes"
 

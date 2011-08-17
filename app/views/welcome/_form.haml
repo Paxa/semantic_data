@@ -1,0 +1,8 @@
+%section.form
+  = form_tag get_items_path, :method => :get do
+    %fieldset<>
+      = text_field_tag :url, params[:url], :placeholder => "Enter page-url to analyze"
+      = submit_tag "Get items!", :name => nil
+      
+  %footer
+    * Analyzation may take few minutes

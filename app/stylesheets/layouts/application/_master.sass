@@ -2,20 +2,30 @@
 $base: 12px
 $footer: $baseline * 2.5
 
-html
-  :background #fff
+html > body
+  :background
+    :image url('/images/backgrounds/lines.png')
   :height 100%
   :font
-    :family Arial
-    :size 0.9em
+    :family Geneva, Georgia, Georgia, serif
+    :size 0.75em
+  :line-height 1.5em
+  
+  /* font-size 13px, baseline 19px
 
-html, html a
-  :color $grey
+  a
+    :text-decoration underline
+
+input
+  :color black
+  &.is-placeheld
+    :color #999
 
 #container
   :background-color #fff
+  :border 10px solid #bbb
+  :border-width 0 10px
+  :padding 0 10px
   :position relative
   +grid-container
   :min-height 100%
-  > .hfooter
-    :height $footer + $baseline

@@ -1,0 +1,36 @@
+$index_input_width: $ninesixty_grid_width - 150px
+$index_form_offset: 13px
+$index_button_offset: 10px
+$index_button_width: $ninesixty_grid_width - $index_input_width - $index_button_offset - $index_form_offset * 2
+
+section.window
+  > section.form
+    :padding 1em $index_form_offset
+    :background-color #F1E9E0
+    :margin 1.5em 0
+    +border-radius(10px)
+  
+    fieldset
+      > input
+        +reset-input
+        :font-size 1.2em
+        :line-height 1.5em
+
+      input[type=text]
+        :width $index_input_width - 12px
+        :margin-right $index_button_offset
+        :border 1px solid #bababa
+        :padding 0.25em 5px
+
+      input[type=submit]
+        :border 1px solid #9EC2B6
+        :background-color #AAE0CC
+        :width $index_button_width - 2px
+        +border-radius(5px)
+        :padding 0.25em 0
+      
+    > footer
+      :margin-top 0.7em
+      :color #444
+      :font
+        :style italic

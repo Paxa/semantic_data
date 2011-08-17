@@ -1,2 +1,23 @@
-%section.window
-  Nothing here
+%section.window.index_page
+  = render "welcome/form"
+  
+  %section.info
+    %aside>
+      %span.recent &bull;
+      %h3 Last requests
+      
+      %ul
+        - 5.times do
+          %li
+            = link_to "google.com", "#"
+            %span (10 items)
+            
+    %aside>
+      %span.knowlage &bull;
+      %h3 Articles
+      
+      %ul
+        %li= link_to "Real usage of microdata", "#"
+        %li= link_to "Developer tools", "#"
+        %li= link_to "Projects using microdata layout", "#"
+          

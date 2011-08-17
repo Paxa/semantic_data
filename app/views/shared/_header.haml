@@ -1,3 +1,10 @@
 %header<>
   .logo>
-    = link_to image_tag("/images/logo.png"), welcome_path
+    = link_to root_path do
+      %h1 Microdata online viewer
+      
+  %nav
+    = menu_tag menu_link("Analyzation", root_path)
+    = menu_tag menu_link("Articles", articles_path)
+    = menu_tag menu_link("Offline tools", offline_tools_path)
+    = menu_tag menu_link("External resources", external_resources_path)

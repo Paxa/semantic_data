@@ -1,0 +1,19 @@
+name: "SemanticDatas"
+
+version: "0.1"
+
+web: 'example.com'
+
+description: "write it here."
+
+license: "[MIT License](http://mootools.net/license.txt)"
+
+copyright: "&copy; [MooTools](http://mootools.net)"
+
+authors: ["Your name"]
+
+sources:
+  - "SemanticDatas.js"
+  - "Application.js"
+  - "Widget.js"
+  - "Widget/Loader.js"

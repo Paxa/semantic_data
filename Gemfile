@@ -32,6 +32,10 @@ gem 'mysql2', '~> 0.2.6'
 
 gem 'sass'
 gem 'haml'
+
 gem 'jsus', :git => 'git@github.com:Paxa/jsus.git', :ref => 'b18c51ee0424cf21f1bf'
+gem 'lsd_rails', '0.1.2', :require => 'lsd'
 
 gem 'mida'
+gem 'yajl-ruby', :require => 'yajl'
+gem 'coderay'

@@ -1,0 +1,5 @@
+%section.window.get_items
+  = render "welcome/form"
+
+  %section.results.item_loader{:data => {:url => parser_parse_url_path(:url => params[:url]) } }
+    .loading

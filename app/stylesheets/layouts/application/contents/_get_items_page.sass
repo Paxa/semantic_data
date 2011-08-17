@@ -1,0 +1,21 @@
+section.get_items
+  > section.results
+    > .loading
+      :background
+        :image url('/images/backgrounds/ajax-loader.gif')
+        :position center center
+        :repeat no-repeat
+      :height 100px
+      
+    > .found_items
+      :white-space pre
+      
+    > p.note
+      :color #444
+      > code
+        :padding 0.5em 1em
+        :background-color #eee
+        :border 1px solid #ddd
+        +border-radius(3px)
+        :font-family Monaco, Courier New, FreeMono, monospaced
+        :display block

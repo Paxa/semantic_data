@@ -1,0 +1,1 @@
+Jsus::Middleware.settings[:cache] = false

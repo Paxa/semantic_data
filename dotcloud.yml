@@ -1,6 +1,5 @@
 www:
   type: ruby
-  approot: public
 
 db:
     type: mysql

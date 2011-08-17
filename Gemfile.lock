@@ -1,9 +1,9 @@
 GIT
-  remote: git@github.com:Paxa/jsus.git
-  revision: b18c51ee0424cf21f1bf8c86da3a119bccf59e6c
-  ref: b18c51ee0424cf21f1bf
+  remote: git://github.com/Paxa/jsus.git
+  revision: 7c801d43710f2de2b38129fcdc8f9e2a9a2ae609
+  ref: 7c801d43710f2de2b38129fcdc8f9e2a9a2ae609
   specs:
-    jsus (0.3.5)
+    jsus (0.3.6)
       activesupport
       json_pure
       rgl

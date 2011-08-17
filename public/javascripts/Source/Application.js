@@ -16,7 +16,10 @@ requires:
   - LSD/LSD.Mixin.Placeholder
 
 provides: [Application]
+...
+*/
 
+/*
 What is that above?
   It's a list of Application dependencies. It loads:
   * LSD.Widget - The smallest entity of a framework, DOM Element's

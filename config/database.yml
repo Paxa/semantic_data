@@ -32,8 +32,9 @@ production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: semantic_datas_production
+  database: semantic_datas
   pool: 5
   username: root
-  password:
-  host: localhost
+  password: "sDERQw44pw3Guvr5sHBB"
+  host: "fad9b81d.dotcloud.com"
+  port: 13326

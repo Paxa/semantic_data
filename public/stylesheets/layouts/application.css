@@ -204,7 +204,8 @@ section.index_page > section.info {
     position: relative; }
     section.index_page > section.info > aside > span {
       position: absolute;
-      left: 10px; }
+      left: 10px;
+      font-weight: bold; }
       section.index_page > section.info > aside > span.recent {
         color: #a4003d; }
       section.index_page > section.info > aside > span.knowlage {

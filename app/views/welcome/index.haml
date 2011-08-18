@@ -7,10 +7,10 @@
       %h3 Last requests
       
       %ul
-        - 5.times do
+        - for parsing in @last_requests
           %li
-            = link_to "google.com", "#"
-            %span (10 items)
+            = link_to parsing.url, parsing.url, :target => "_blank"
+            %span= %{(#{parsing.items_count} #{parsing.items_count > 1 ? "items" : "item"})}
             
     %aside>
       %span.knowlage &bull;

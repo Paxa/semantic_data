@@ -179,14 +179,14 @@ input {
     font-size: 2em;
     line-height: 1.5em;
     color: #0070b7; }
-  #container > header > nav > * {
+  #container > header > nav > ul > * {
     zoom: 1;
     display: inline;
     display: -moz-inline-box;
     display: inline-block;
     *display: inline;
     vertical-align: top; }
-  #container > header > nav a, #container > header > nav a span {
+  #container > header > nav > ul a, #container > header > nav > ul a span {
     color: #d700cf; }
 
 section.index_page > section.info {

@@ -1,1 +1,1 @@
-Jsus::Middleware.settings[:cache] = false
+Jsus::Middleware.settings[:cache] = Rails.env.production?

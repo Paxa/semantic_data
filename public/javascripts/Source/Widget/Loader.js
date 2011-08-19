@@ -43,17 +43,8 @@ SemanticDatas.Widget.Loader = new Class({
     this.element.adopt(Elements.from(html));
     this.setLoaded();
   },
-  
-  setLoaded: function () {
-    this.element.getElement('.loading').hide();
-  },
-  
-  reset: function () {
-    this.element.getChildren().each(function(child) {
-      if (child.className.indexOf('loading') == -1) {
-        child.destroy();
-      }
-    })
-    this.element.getElement('.loading').show();
-  },
+
+  reset: function() {
+    this.element.getChildren().destroy();
+  }
 });

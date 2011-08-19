@@ -170,6 +170,15 @@ input {
   margin-right: auto;
   width: 650px;
   min-height: 100%; }
+  #container > footer {
+    margin-top: 1.4em;
+    border-top: 0.1em dashed #cccccc;
+    padding: 1em 0; }
+    #container > footer > * {
+      margin-right: 0.5em; }
+    #container > footer > a.google-plus {
+      position: relative;
+      top: 3px; }
 
 #container > header {
   padding-bottom: 1.5em; }
@@ -220,24 +229,40 @@ section.index_page > section.info {
       section.index_page > section.info > aside > ul a {
         color: #2e0179; }
 
-section.get_items > section.results > .loading {
+section.get_items > section.results {
   background-image: url("/images/backgrounds/ajax-loader.gif");
   background-position: center center;
   background-repeat: no-repeat;
   height: 100px; }
-section.get_items > section.results > .found_items {
-  white-space: pre; }
-section.get_items > section.results > p.note {
-  color: #444444; }
-  section.get_items > section.results > p.note > code {
-    padding: 0.5em 1em;
-    background-color: #eeeeee;
-    border: 1px solid #dddddd;
-    -moz-border-radius: 3px;
-    -o-border-radius: 3px;
-    -ms-border-radius: 3px;
-    -khtml-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
-    font-family: Monaco, Courier New, FreeMono, monospaced;
-    display: block; }
+  section.get_items > section.results.is-loaded {
+    background: none;
+    height: auto; }
+  section.get_items > section.results > .found_items {
+    white-space: pre; }
+  section.get_items > section.results > p.note {
+    color: #444444; }
+    section.get_items > section.results > p.note > code {
+      padding: 0.5em 1em;
+      background-color: #eeeeee;
+      border: 1px solid #dddddd;
+      -moz-border-radius: 3px;
+      -o-border-radius: 3px;
+      -ms-border-radius: 3px;
+      -khtml-border-radius: 3px;
+      -webkit-border-radius: 3px;
+      border-radius: 3px;
+      font-family: Monaco, Courier New, FreeMono, monospaced;
+      display: block; }
+  section.get_items > section.results > .url_error {
+    margin: 1.5em 0; }
+    section.get_items > section.results > .url_error > h3 {
+      font-size: 2em; }
+    section.get_items > section.results > .url_error > b {
+      zoom: 1;
+      display: inline;
+      display: -moz-inline-box;
+      display: inline-block;
+      *display: inline;
+      vertical-align: top;
+      margin: 1.5em 0;
+      color: #dd3333; }

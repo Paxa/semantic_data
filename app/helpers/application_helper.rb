@@ -5,7 +5,6 @@ module ApplicationHelper
     default_options = {:tag => :li, :itemscope => true, :itemtype => "http://data-vocabulary.org/Breadcrumb"}
     options = default_options.merge(options)
     
-    Rails.logger.info([content, options, block])
     if block_given?
       content_tag(options.delete(:tag), options, &block)
     else

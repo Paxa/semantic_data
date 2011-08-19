@@ -1,11 +1,15 @@
-section.get_items
-  > section.results
-    > .loading
-      :background
-        :image url('/images/backgrounds/ajax-loader.gif')
-        :position center center
-        :repeat no-repeat
-      :height 100px
+section.get_items    
+  > section.results  
+    :background
+      :image url('/images/backgrounds/ajax-loader.gif')
+      :position center center
+      :repeat no-repeat
+    :height 100px
+  
+    &.is-loaded
+      :background none
+      :height auto
+
       
     > .found_items
       :white-space pre
@@ -19,3 +23,12 @@ section.get_items
         +border-radius(3px)
         :font-family Monaco, Courier New, FreeMono, monospaced
         :display block
+        
+    > .url_error    
+      :margin 1.5em 0
+      > h3
+        :font-size 2em
+      > b
+        +inline-block
+        :margin 1.5em 0
+        :color #d33

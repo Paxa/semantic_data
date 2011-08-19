@@ -234,7 +234,7 @@ section.get_items > section.results {
   background-position: center center;
   background-repeat: no-repeat;
   height: 100px; }
-  section.get_items > section.results.is-loaded {
+  section.get_items > section.results.loaded {
     background: none;
     height: auto; }
   section.get_items > section.results > .found_items {

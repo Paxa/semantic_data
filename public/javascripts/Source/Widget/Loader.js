@@ -23,11 +23,11 @@ Elements.from = function(html) {
   return new Elements(innerShiv(html).childNodes);
 };
 
+LSD.States.loaded = {enabler: 'load', disabler: 'reset',    reflect: true};
+
 SemanticDatas.Widget.Loader = new Class({
   options: {
-    states: {
-      loaded: {enabler: 'setLoaded',     disabler: 'reset',    reflect: true},
-    }
+    states: Array.object('loaded')
   },
   
   build: Macro.onion(function() {
@@ -41,7 +41,7 @@ SemanticDatas.Widget.Loader = new Class({
   
   appendContent: function(children, tree, html) {
     this.element.adopt(Elements.from(html));
-    this.setLoaded();
+    this.load();
   },
 
   reset: function() {

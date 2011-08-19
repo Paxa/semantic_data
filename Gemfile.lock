@@ -49,6 +49,7 @@ GEM
     haml (3.1.2)
     i18n (0.5.0)
     json_pure (1.5.3)
+    libv8 (3.3.10.2)
     lsd_rails (0.1.4)
       rails (>= 3.0.0)
     mail (2.2.19)
@@ -90,6 +91,8 @@ GEM
       stream (>= 0.5)
     sass (3.1.7)
     stream (0.5)
+    therubyracer (0.9.3)
+      libv8 (~> 3.3.10)
     thor (0.14.6)
     treetop (1.4.10)
       polyglot
@@ -112,5 +115,6 @@ DEPENDENCIES
   mysql2 (~> 0.2.6)
   rails (= 3.0.9)
   sass
+  therubyracer
   uglifier
   yajl-ruby

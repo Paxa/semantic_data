@@ -34,8 +34,9 @@ gem 'sass'
 gem 'haml'
 
 gem 'jsus', :git => 'git://github.com/Paxa/jsus.git', :ref => '7c801d43710f2de2b38129fcdc8f9e2a9a2ae609'
-gem 'lsd_rails', '0.1.2', :require => 'lsd'
+gem 'lsd_rails', '0.1.4', :require => 'lsd'
 
 gem 'mida'
 gem 'yajl-ruby', :require => 'yajl'
 gem 'coderay'
+gem 'uglifier', :require => false

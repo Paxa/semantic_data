@@ -44,10 +44,12 @@ GEM
     coderay (0.9.8)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    execjs (1.2.4)
+      multi_json (~> 1.0)
     haml (3.1.2)
     i18n (0.5.0)
     json_pure (1.5.3)
-    lsd_rails (0.1.2)
+    lsd_rails (0.1.4)
       rails (>= 3.0.0)
     mail (2.2.19)
       activesupport (>= 2.3.6)
@@ -58,6 +60,7 @@ GEM
       blankslate
       nokogiri (>= 1.5)
     mime-types (1.16)
+    multi_json (1.0.3)
     mysql2 (0.2.11)
     nokogiri (1.5.0)
     polyglot (0.3.2)
@@ -92,6 +95,9 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.29)
+    uglifier (1.0.1)
+      execjs (>= 0.3.0)
+      multi_json (>= 1.0.2)
     yajl-ruby (0.8.3)
 
 PLATFORMS
@@ -101,9 +107,10 @@ DEPENDENCIES
   coderay
   haml
   jsus!
-  lsd_rails (= 0.1.2)
+  lsd_rails (= 0.1.4)
   mida
   mysql2 (~> 0.2.6)
   rails (= 3.0.9)
   sass
+  uglifier
   yajl-ruby

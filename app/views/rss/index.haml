@@ -1,0 +1,39 @@
+%section.window.rss_form
+  %h1 Microdata-to-RSS tool
+  
+  %p It makes rss-feed from your blog with microdata layout.
+  
+  %p Blog page may contain such items:
+  
+  %ul
+    %li Blog
+
+    %li BlogPosting
+    
+    - #%li NewsArticle
+    - #%li ScholarlyArticle
+    - #
+    - #%li Recipe
+    - #%li Review
+    - #%li TVEpisode
+  
+  %form
+    %p
+      %label Page url
+      = text_field_tag :"feed[url]", {}, :value => "", :placeholder => "http://example.com/posts"
+    %p  
+      = label_tag :feed_max_posts, "Maximum posts"
+      = text_field_tag :"feed[max_posts]", {}, :value => 20
+      
+      
+    %p
+      = label_tag :feed_max_age, "Maximum age of posts"
+      %select#feed_max_age{ :name => "feed[max_age]"}
+        %option{:value => 1.day.to_i} 1 day
+        %option{:value => 1.week.to_i, :selected => :selected } 1 week
+        %option{:value => 2.weeks.to_i } 2 weeks
+        %option{:value => 1.month.to_i } 1 month
+      
+    .feed_url
+      %textarea
+        

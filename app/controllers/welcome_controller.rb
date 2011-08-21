@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-    @last_requests = Parsing.order(:id).limit(10).all
+    @last_requests = Parsing.order("updated_at desc").limit(10).all
   end
   
   def articles

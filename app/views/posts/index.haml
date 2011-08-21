@@ -1,0 +1,10 @@
+%section.window.blog{:itemscope => "blog", :itemtype => "http://schema.org/Blog"}
+  %header
+    %p{:itemprop => "description"}
+      I will write here project news and articles about microdata.
+    
+    .author
+      &mdash 
+      %span{:itemprop => "author"} Evstigneev Pavel
+  
+  = render @posts

@@ -10,7 +10,10 @@
         - for parsing in @last_requests
           %li
             = link_to parsing.url, parsing.url, :target => "_blank"
-            %span= %{(#{parsing.items_count} #{parsing.items_count > 1 ? "items" : "item"})}
+            %span<
+              (
+              %a{:href => get_items_path(:url => parsing.url)}<>= %{#{parsing.items_count} #{parsing.items_count > 1 ? "items" : "item"}}
+              )
 
     %aside>
       %span.knowlage &bull;

@@ -1,0 +1,7 @@
+%article.post{:itemprop => "blogPosts", :itemscope => "true", :itemtype => "http://schema.org/BlogPosting"}
+  = link_to post, :itemprop => "url" do
+    %h3{:itemprop => "name"}>= post.title
+  
+  .post_body{:itemprop => "articleBody"}= post.body.html_safe
+  
+  %time{:datetime => post.published_at.iso8601(10), :itemprop => "datePublished" }= post.published_at.strftime("%d %h %Y")

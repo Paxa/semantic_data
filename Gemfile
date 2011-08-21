@@ -40,6 +40,7 @@ gem 'mida'
 gem 'yajl-ruby', :require => 'yajl'
 gem 'coderay'
 gem 'uglifier', :require => false
+gem 'RedCloth'
 
 group :production do
   gem 'therubyracer'

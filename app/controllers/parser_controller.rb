@@ -4,21 +4,7 @@ class ParserController < ApplicationController
   end
   
   def parse_url
-    require "open-uri"
-    
-    begin
-      content = open(params[:url]).read
-    rescue => e
-      Rails.logger.info e.class
-      Rails.logger.info e.message
-      @error_message = case e
-        when URI::InvalidURIError then "Invalid url"
-        when SocketError then "nodename nor servname provided, or not known"
-        when OpenURI::HTTPError then e.message
-        when Timeout::Error then "Timeout error"
-        else "Unknown error"
-      end
-    end
+    content = get_content(params[:url])
     
     if @error_message
       respond_to do |format|
@@ -33,7 +19,12 @@ class ParserController < ApplicationController
       item.to_h
     end
     
-    parsing = Parsing.create(:url => params[:url], :result => content, :items_count => @doc.items.size)
+    if parsing = Parsing.where(:url => params[:url]).first
+      parsing.touch
+    else
+      parsing = Parsing.create(:url => params[:url], :result => content, :items_count => @doc.items.size)
+    end
+    
     respond_to do |format|
       format.html { render :parse_url, :layout => false }
       format.json { render :json => @doc_hash }

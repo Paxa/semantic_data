@@ -101,6 +101,21 @@ time {
 
 /* colors */
 /* shadows */
+section.window > h1 {
+  font-size: 1.5em;
+  margin-bottom: 1.5em; }
+section.window > h2 {
+  font-size: 1.3em;
+  color: #333333;
+  margin: 1em 0; }
+section.window > ul {
+  margin-top: 1em;
+  margin-bottom: 2em;
+  padding-left: 20px;
+  list-style-type: disc; }
+  section.window > ul > li {
+    list-style-type: disc; }
+
 section.window > section.form {
   padding: 1em 13px;
   background-color: #f1e9e0;
@@ -144,6 +159,11 @@ section.window > section.form {
     color: #444444;
     font-style: italic; }
 
+article.post > a > h3 {
+  font-size: 1.4em; }
+article.post > .post_body {
+  margin: 1.5em 0; }
+
 /* master */
 html > body {
   background-image: url("/images/backgrounds/lines.png");
@@ -153,11 +173,12 @@ html > body {
   line-height: 1.5em;
   /* font-size 13px, baseline 19px */ }
   html > body a {
-    text-decoration: underline; }
+    text-decoration: underline;
+    color: #0050a3; }
 
 input {
   color: black; }
-  input.is-placeheld {
+  input.is-placeheld, input.placeheld {
     color: #999999; }
 
 #container {
@@ -196,7 +217,7 @@ input {
     *display: inline;
     vertical-align: top; }
   #container > header > nav > ul a, #container > header > nav > ul a span {
-    color: #d700cf; }
+    color: #cc00c5; }
 
 section.index_page > section.info {
   margin-top: 2.8em; }
@@ -226,8 +247,6 @@ section.index_page > section.info {
       section.index_page > section.info > aside > ul > li > span {
         color: #666666;
         font-style: italic; }
-      section.index_page > section.info > aside > ul a {
-        color: #2e0179; }
 
 section.get_items > section.results {
   background-image: url("/images/backgrounds/ajax-loader.gif");
@@ -266,3 +285,16 @@ section.get_items > section.results {
       vertical-align: top;
       margin: 1.5em 0;
       color: #dd3333; }
+
+section.external_resources {
+  margin-top: 1em; }
+
+section.blog > header {
+  margin-bottom: 1.5em; }
+  section.blog > header > .author {
+    padding-right: 30%;
+    text-align: right;
+    color: #bababa;
+    font-style: italic; }
+    section.blog > header > .author > a {
+      color: #5ea1e8; }

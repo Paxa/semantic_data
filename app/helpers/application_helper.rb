@@ -21,7 +21,7 @@ module ApplicationHelper
   def rss_self_url
     #http://semantic_datas.dev/rss/feed.rss?url=http%3A%2F%2Fsemantic_datas.dev%2Fposts
     posts_url = "http://#{HOST}/posts"
-    "http://#{HOST}/#{Rack::Utils.universal_build(:url => posts_url)}"
+    "http://#{HOST}/rss/feed.rss?#{Rack::Utils.universal_build(:url => posts_url)}"
   end
   
   def menu_link(title, url, options = {})

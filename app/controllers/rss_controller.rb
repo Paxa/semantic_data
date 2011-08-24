@@ -17,6 +17,8 @@ class RssController < ApplicationController
     
     @doc = Mida::Document.new(content, params[:url])
     
+    Rails.logger.warning @doc
+    
     @blog_item = @doc.search(%r{http://schema.org/Blog}).first
     
     @posts = @blog_item.properties["blogPosts"].map do |post_item|
@@ -37,7 +39,7 @@ class RssController < ApplicationController
     
     @blog[:author] = @blog_item.get_string_prop(:author) || @doc.doc.css('[rel=author]').first.content
     
-    Rails.logger.info([@blog, @posts])
+    Rails.logger.warning([@blog, @posts])
     
     #render :text => ""
   end

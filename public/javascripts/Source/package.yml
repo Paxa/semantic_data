@@ -17,3 +17,4 @@ sources:
   - "Application.js"
   - "Widget.js"
   - "Widget/Loader.js"
+  - "Widget/RssForm.js"

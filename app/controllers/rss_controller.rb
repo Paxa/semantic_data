@@ -9,8 +9,8 @@ class RssController < ApplicationController
 
     if @error_message
       respond_to do |format|
-        format.html { render :error, :layout => false }
-        format.json { render :json => {:error => @error_message} }
+        format.rss  { render :xml => {:error => @error_message} }
+        format.atom { render :xml => {:error => @error_message} }
       end
       return
     end

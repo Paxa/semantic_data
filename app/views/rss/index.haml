@@ -3,12 +3,11 @@
   
   %p It makes rss-feed from your blog with microdata layout.
   
-  %p Blog page may contain such items:
-  
-  %ul
-    %li Blog
-
-    %li BlogPosting
+  %p
+    Blog page may contain such items:
+    
+    %a{:href => "http://schema.org/Blog"}> Blog
+    %a{:href => "http://schema.org/BlogPosting"}> BlogPosting
     
     - #%li NewsArticle
     - #%li ScholarlyArticle
@@ -16,13 +15,14 @@
     - #%li Recipe
     - #%li Review
     - #%li TVEpisode
-  
-  %form
+
+  %form.rss_form
+    %input{ :type => "hidden", :name => "host", :value => "semantic_datas.dev" }
     %p
       %label Page url
       = text_field_tag :"feed[url]", {}, :value => "", :placeholder => "http://example.com/posts"
     %p  
-      = label_tag :feed_max_posts, "Maximum posts"
+      = label_tag :feed_max_posts, "Maximum posts in feed"
       = text_field_tag :"feed[max_posts]", {}, :value => 20
       
       
@@ -30,10 +30,19 @@
       = label_tag :feed_max_age, "Maximum age of posts"
       %select#feed_max_age{ :name => "feed[max_age]"}
         %option{:value => 1.day.to_i} 1 day
-        %option{:value => 1.week.to_i, :selected => :selected } 1 week
+        %option{:value => 1.week.to_i } 1 week
         %option{:value => 2.weeks.to_i } 2 weeks
-        %option{:value => 1.month.to_i } 1 month
-      
+        %option{:value => 1.month.to_i, :selected => :selected } 1 month
+        %option{:value => 2.month.to_i } 2 month
+    
     .feed_url
-      %textarea
-        
+
+      %p
+        Results
+
+      %label Feed url
+      %textarea.result_url
+    
+    .feed_html
+      %label Feed html
+      %textarea.result_html

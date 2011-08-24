@@ -67,5 +67,6 @@ LSD.Element.pool.push(LSD.Widget);
 SemanticDatas.Application = new LSD.Document({
   mutations: {
     'section.item_loader': 'loader',
+    'form.rss_form': 'RssForm'
   }
 });

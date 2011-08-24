@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   private
   def get_content(url)
     require "open-uri"
+    require "timeout"
 
     begin
       content = open(url).read
@@ -15,6 +16,7 @@ class ApplicationController < ActionController::Base
         when SocketError then "nodename nor servname provided, or not known"
         when OpenURI::HTTPError then e.message
         when Timeout::Error then "Timeout error"
+        when Errno::ENOENT then "Host unreachable"
         else "Unknown error"
       end
     end

@@ -1,3 +1,36 @@
 section.rss_form
-  > h1
+  > p
+    > span
+      +inline-block
+      :background-color #F1E9E0
+      :padding 0 0.2em
+      :margin-left 0.4em
+      :font-weight bold
     
+  > form
+    :margin-top 1.5em
+    label
+      +inline-block
+      :width 12em
+      :padding 0 1em
+      :text-align right
+      
+    > p
+      #feed_url
+        :width 36em
+          
+    .feed_url
+      :margin-top 1.5em
+      > p
+        :padding 0.75em 0 0.75em 14em
+        :font-weight bold
+  
+    .feed_url, .feed_html
+      label
+        :font-style italic
+  
+    textarea
+      :width 430px
+      :padding 0.4em
+      :height 4.5em
+      :border 1px solid #ddd

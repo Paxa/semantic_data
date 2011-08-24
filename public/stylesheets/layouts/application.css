@@ -12,7 +12,7 @@ html, body {
 div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
 pre, a, abbr, acronym, address, code, del, dfn, em, img,
 dl, dt, dd, ol, ul, li, fieldset, form, label,
-textarea, legend, caption, tbody, tfoot, thead, tr {
+legend, caption, tbody, tfoot, thead, tr {
   margin: 0;
   padding: 0;
   border: 0;
@@ -216,6 +216,8 @@ input {
     display: inline-block;
     *display: inline;
     vertical-align: top; }
+  #container > header > nav > ul > li {
+    margin-right: 0.2em; }
   #container > header > nav > ul a, #container > header > nav > ul a span {
     color: #cc00c5; }
 
@@ -298,3 +300,41 @@ section.blog > header {
     font-style: italic; }
     section.blog > header > .author > a {
       color: #5ea1e8; }
+
+section.rss_form > p > span {
+  zoom: 1;
+  display: inline;
+  display: -moz-inline-box;
+  display: inline-block;
+  *display: inline;
+  vertical-align: top;
+  background-color: #f1e9e0;
+  padding: 0 0.2em;
+  margin-left: 0.4em;
+  font-weight: bold; }
+section.rss_form > form {
+  margin-top: 1.5em; }
+  section.rss_form > form label {
+    zoom: 1;
+    display: inline;
+    display: -moz-inline-box;
+    display: inline-block;
+    *display: inline;
+    vertical-align: top;
+    width: 12em;
+    padding: 0 1em;
+    text-align: right; }
+  section.rss_form > form > p #feed_url {
+    width: 36em; }
+  section.rss_form > form .feed_url {
+    margin-top: 1.5em; }
+    section.rss_form > form .feed_url > p {
+      padding: 0.75em 0 0.75em 14em;
+      font-weight: bold; }
+  section.rss_form > form .feed_url label, section.rss_form > form .feed_html label {
+    font-style: italic; }
+  section.rss_form > form textarea {
+    width: 430px;
+    padding: 0.4em;
+    height: 4.5em;
+    border: 1px solid #dddddd; }

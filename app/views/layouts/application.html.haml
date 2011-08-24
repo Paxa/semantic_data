@@ -10,6 +10,8 @@
       
     = jsus_include "SemanticDatas:*", :development => 'include', :production => 'compressed'
     
+    = rss_link :href => rss_self_url
+    
     - if Rails.env.production?
       :javascript
         var _gaq = _gaq || [];

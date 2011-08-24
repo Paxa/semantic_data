@@ -12,6 +12,18 @@ module ApplicationHelper
     end
   end
   
+  def rss_link(options)
+    #%link{rel="alternate" type="application/rss+xml" title="RSS" href="http://semantic_datas.dev/rss/feed.rss?url=http%3A%2F%2Fsemantic_datas.dev%2Fposts")
+    default_options = {:rel => :alternate, :type => "application/rss+xml", :title => :RSS}
+    tag(:link, default_options.merge(options))
+  end
+  
+  def rss_self_url
+    #http://semantic_datas.dev/rss/feed.rss?url=http%3A%2F%2Fsemantic_datas.dev%2Fposts
+    posts_url = "http://#{HOST}/posts"
+    "http://#{HOST}/#{Rack::Utils.universal_build(:url => posts_url)}"
+  end
+  
   def menu_link(title, url, options = {})
     link_to(%{<span itemprop="title">#{title}</span>}.html_safe, url, options.merge(:itemprop => "url"))
   end

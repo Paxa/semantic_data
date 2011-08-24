@@ -301,17 +301,16 @@ section.blog > header {
     section.blog > header > .author > a {
       color: #5ea1e8; }
 
-section.rss_form > p > span {
+section.rss_form > p > a {
   zoom: 1;
   display: inline;
   display: -moz-inline-box;
   display: inline-block;
   *display: inline;
   vertical-align: top;
-  background-color: #f1e9e0;
+  background-color: #e9e9e9;
   padding: 0 0.2em;
-  margin-left: 0.4em;
-  font-weight: bold; }
+  margin-left: 0.4em; }
 section.rss_form > form {
   margin-top: 1.5em; }
   section.rss_form > form label {

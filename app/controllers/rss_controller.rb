@@ -1,23 +1,23 @@
 class RssController < ApplicationController
+  respond_to :html, :xml, :rss, :atom
+  
   def index
     
   end
   
   def feed
+    request.format = "rss" unless params[:format]
     
     content = get_content(params[:url])
 
     if @error_message
-      respond_to do |format|
-        format.rss  { render :xml => {:error => @error_message} }
-        format.atom { render :xml => {:error => @error_message} }
-      end
+      render :xml => {:error => @error_message}
       return
     end
     
     @doc = Mida::Document.new(content, params[:url])
     
-    Rails.logger.warning @doc
+    Rails.logger.error @doc
     
     @blog_item = @doc.search(%r{http://schema.org/Blog}).first
     
@@ -39,7 +39,7 @@ class RssController < ApplicationController
     
     @blog[:author] = @blog_item.get_string_prop(:author) || @doc.doc.css('[rel=author]').first.content
     
-    Rails.logger.warning([@blog, @posts])
+    Rails.logger.error([@blog, @posts])
     
     #render :text => ""
   end

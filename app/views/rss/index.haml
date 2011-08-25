@@ -19,7 +19,7 @@
     - #%li TVEpisode
 
   %form.rss_form
-    %input{ :type => "hidden", :name => "host", :value => "semantic_datas.dev" }
+    %input{ :type => "hidden", :name => "host", :value => HOST }
     %p
       %label Page url
       = text_field_tag :"feed[url]", {}, :value => "", :placeholder => "http://example.com/posts"

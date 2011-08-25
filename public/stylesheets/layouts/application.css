@@ -251,9 +251,19 @@ section.index_page > section.info {
       font-size: 1.2em; }
     section.index_page > section.info > aside > ul {
       margin-top: 0.5em; }
-      section.index_page > section.info > aside > ul > li > span {
+      section.index_page > section.info > aside > ul > li {
         color: #666666;
-        font-style: italic; }
+        padding-right: 2em; }
+        section.index_page > section.info > aside > ul > li > span, section.index_page > section.info > aside > ul > li > time {
+          zoom: 1;
+          display: inline;
+          display: -moz-inline-box;
+          display: inline-block;
+          *display: inline;
+          vertical-align: top;
+          color: #666666;
+          font-style: italic;
+          font-size: 0.8em; }
 
 section.get_items > section.results {
   background-image: url("/images/backgrounds/ajax-loader.gif");

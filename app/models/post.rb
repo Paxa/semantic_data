@@ -3,6 +3,9 @@ require "pathname"
 class Post < ActiveRecord::Base
   html_schema_type "http://schema.org/BlogPosting"
   
+  def self.latest
+    self.order("published_at desc").limit(7).all
+  end
   # parse files as:
   #   date
   #   title

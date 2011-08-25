@@ -20,7 +20,7 @@
       %h3 Articles
 
       %ul
-        %li= link_to "Real usage of microdata", "#"
-        %li= link_to "Developer tools", "#"
-        %li= link_to "Projects using microdata layout", "#"
-          
+        - for post in Post.latest
+          %li
+            = link_to post.title, post
+            (#{time_tag(post.published_at)})

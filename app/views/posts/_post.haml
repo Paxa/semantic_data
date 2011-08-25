@@ -5,4 +5,4 @@
   
   .post_body[:articleBody]= post.body.html_safe
   
-  %time{:datetime => post.published_at.iso8601(10), :itemprop => "datePublished" }= post.published_at.strftime("%d %h %Y")
+  = time_tag(post.published_at, :itemprop => "datePublished")

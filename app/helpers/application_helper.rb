@@ -24,6 +24,13 @@ module ApplicationHelper
     "http://#{HOST}/rss/feed.rss?#{Rack::Utils.universal_build(:url => posts_url)}"
   end
   
+  #%time{:datetime => post.published_at.iso8601(10), :itemprop => "datePublished" }= post.published_at.strftime("%d %h %Y")
+  def time_tag(time, options = {})
+    format = options.delete(:format) || "%d %h %Y"
+    default_options = {:datetime => time.iso8601(10)}
+    content_tag(:time, time.strftime(format), default_options.merge(options))
+  end
+  
   def menu_link(title, url, options = {})
     link_to(%{<span itemprop="title">#{title}</span>}.html_safe, url, options.merge(:itemprop => "url"))
   end

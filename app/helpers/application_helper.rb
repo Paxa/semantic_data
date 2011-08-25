@@ -29,9 +29,9 @@ module ApplicationHelper
   end
   
   def page_title(site_title, options = {})
-    options = {:seporator => "|"}.merge(options)
+    options = {:seporator => ":"}.merge(options)
     if @page_title
-      "#{@page_title} #{options[:seporator]} #{site_title}"
+      "#{site_title}#{options[:seporator]} #{@page_title}"
     else
       site_title
     end

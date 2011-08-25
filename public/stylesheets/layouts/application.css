@@ -274,7 +274,8 @@ section.get_items > section.results {
     background: none;
     height: auto; }
   section.get_items > section.results > .found_items {
-    white-space: pre; }
+    white-space: pre;
+    word-wrap: break-word; }
   section.get_items > section.results > p.note {
     color: #444444; }
     section.get_items > section.results > p.note > code {

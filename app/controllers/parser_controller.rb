@@ -27,7 +27,7 @@ class ParserController < ApplicationController
     
     respond_to do |format|
       format.html { render :parse_url, :layout => false }
-      format.json { render :json => @doc_hash }
+      format.json { render :text => Yajl::Encoder.encode(@doc_hash), :content_type => "application/json" }
     end
   end
 end

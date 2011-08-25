@@ -15,7 +15,19 @@ class RssController < ApplicationController
       return
     end
     
+    # hack to avoid validation
+    vocabularies = []
+    Mida::Vocabulary.vocabularies.each do |vocabulary|
+      unless vocabulary == Mida::GenericVocabulary
+        vocabularies << vocabulary
+        Mida::Vocabulary.unregister(vocabulary)
+      end
+    end
+    
     @doc = Mida::Document.new(content, params[:url])
+    
+    # put vocabularies back
+    vocabularies.each {|v| Mida::Vocabulary.register(v) }
     
     Rails.logger.error @doc
     

@@ -19,3 +19,11 @@ def Mida(itemtype)
 
   Mida::Vocabulary.find(itemtype)
 end
+
+require "uri"
+
+module URI
+  def to_json
+    to_s.to_json
+  end
+end

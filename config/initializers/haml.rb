@@ -1,9 +1,15 @@
-#Haml::Template.options[:ugly]         = true
-#Haml::Template.options[:attr_wrapper] = '"'
-
 # this hack looks at active-record object's :html_schema_type field and adds itemscope, itemid and itemtype to element
 # example:
-# %article[post] => <article class="post" itemscope itemtype="http://schema.org/BlogPosting" itemid="1">
+#
+# %article[post] 
+# => <article class="post" itemscope itemtype="http://schema.org/BlogPosting" itemid="1">
+#
+# %section[Mida(:Blog)]
+# => <section itemscope itemtype="http://schema.org/Blog">
+#
+# %span[:title] Hello
+# => <span itemprop="title">Hello</span>
+
 class Haml::Buffer
   
   def parse_object_ref(ref)
@@ -12,10 +18,10 @@ class Haml::Buffer
     ref = ref[0]
     
     # make itemprop=ref if ref if symbol
-    # %span[:title] Hello
-    # => <span itemprop="title">Hello</span>
     if ref.is_a?(Symbol)
       return {'itemprop' => ref.to_s}
+    elsif ref.kind_of?(Mida::Vocabulary)
+      return {:itemprop => true, :itemtype => ref.itemtype.source}
     end
     
     # Let's make sure the value isn't nil. If it is, return the default Hash.
@@ -33,9 +39,10 @@ class Haml::Buffer
     end
     
     # my hack for microdata attributes
-    options = {'id' => id, 'itemid' => ref.id, 'class' => class_name}
+    options = {'id' => id, 'class' => class_name}
     if ref.respond_to?(:html_schema_type)
       options[:itemscope] = true
+      options[:itemid] = ref.id
       raise "No vocabulary found (#{ref.html_schema_type})" unless Mida::Vocabulary.find(ref.html_schema_type)
       options[:itemtype] = ref.html_schema_type
     end

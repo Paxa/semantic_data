@@ -11,3 +11,11 @@ class Mida::Item
     get_prop(prop_name).map(&:to_s).join(" ")
   end
 end
+
+def Mida(itemtype)
+  if itemtype.is_a?(Symbol)
+    itemtype = "http://schema.org/#{itemtype}"
+  end
+
+  Mida::Vocabulary.find(itemtype)
+end

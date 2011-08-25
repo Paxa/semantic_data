@@ -1,4 +1,4 @@
-%article[post, :blogPosts]
+%article[post, !defined?(single) && :blogPosts]
 
   = link_to post, :itemprop => "url" do
     %h3[:name]>= post.title

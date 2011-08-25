@@ -23,14 +23,14 @@ class Haml::Buffer
   end
   
   def process_object_ref(obj)
-    return {} if obj.nil?
+    return {} if !obj
     
     if obj.is_a?(Symbol)
       # symbol => "itemprop" attribute
       return {'itemprop' => obj.to_s}
     elsif obj.kind_of?(Mida::Vocabulary)
       # Mida::Vocabulary => itemprop and itemtype
-      return {:itemprop => true, :itemtype => obj.itemtype.source}
+      return {:itemscope => true, :itemtype => obj.itemtype.source}
     else
       options = {}
       options[:class] = obj.respond_to?(:haml_object_ref) ? obj.haml_object_ref : underscore(obj.class)

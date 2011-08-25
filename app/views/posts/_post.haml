@@ -1,4 +1,4 @@
-%article.post{:itemprop => "blogPosts", :itemscope => "true", :itemtype => "http://schema.org/BlogPosting"}
+%article.post{:itemscope => true, :itemprop => "blogPosts", :itemtype => "http://schema.org/BlogPosting"}
   = link_to post, :itemprop => "url" do
     %h3{:itemprop => "name"}>= post.title
   

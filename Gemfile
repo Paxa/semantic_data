@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.9'
+gem 'rails', '3.0.10'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -31,7 +31,7 @@ gem 'mysql2', '~> 0.2.6'
 # end
 
 gem 'sass'
-gem 'haml'
+gem 'haml', "~>3.1"
 
 gem 'jsus', :git => 'git://github.com/Paxa/jsus.git', :ref => '7c801d43710f2de2b38129fcdc8f9e2a9a2ae609'
 gem 'lsd_rails', '0.1.4', :require => 'lsd'

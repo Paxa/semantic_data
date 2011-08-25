@@ -2,11 +2,11 @@
 
 %section.window.blog{:itemscope => true, :itemtype => "http://schema.org/Blog"}
   %header
-    %p{:itemprop => "description"}
+    %p[:description]
       I will write here project news and articles about microdata.
     
     .author
       &mdash; 
-      %span{:itemprop => "author"} Evstigneev Pavel
+      %span[:author] Evstigneev Pavel
   
   = render @posts

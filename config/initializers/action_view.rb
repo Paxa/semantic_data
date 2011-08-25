@@ -17,7 +17,7 @@ module ActionView
               attrs << %(#{key}="#{final_value}")
             end
           end
-          p " #{attrs.sort * ' '}".html_safe
+
           " #{attrs.sort * ' '}".html_safe unless attrs.empty?
         end
       end

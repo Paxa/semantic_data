@@ -1,6 +1,8 @@
 require "pathname"
 
 class Post < ActiveRecord::Base
+  html_schema_type "http://schema.org/BlogPosting"
+  
   # parse files as:
   #   date
   #   title

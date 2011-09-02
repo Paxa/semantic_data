@@ -5,7 +5,7 @@ cd ~/current
 rm -rf public/javascripts/jsus/*
 rm -rf public/stylesheets
 RAILS_ENV=production rake lsd:relink_packages sass:update
-".split("\n").join(" && ")
+".strip.split("\n").join(" && ")
 
 `dotcloud run microdata.www -- "#{commands}"`
 

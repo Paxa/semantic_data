@@ -5,3 +5,4 @@ require File.expand_path('../application', __FILE__)
 SemanticDatas::Application.initialize!
 
 Sass::Plugin.options[:template_location] = 'app/stylesheets'
+Sass::Plugin.options[:style] = :compact

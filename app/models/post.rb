@@ -19,9 +19,12 @@ class Post < ActiveRecord::Base
     
     content = file.read
     lines = content.split("\n")
+    
     record.published_at = DateTime.parse(lines.shift)
     record.title = lines.shift
-    record.body = RedCloth.new(lines.join("\n")).to_html
+    
+    require 'rdiscount'
+    record.body = RDiscount.new(lines.join("\n").strip).to_html
     
     puts(record.new_record? ? "Creating" : "Updating" + " post #{record.link}")
     record.save

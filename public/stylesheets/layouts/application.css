@@ -159,10 +159,29 @@ section.window > section.form {
     color: #444444;
     font-style: italic; }
 
-article.post > a > h3 {
-  font-size: 1.4em; }
-article.post > .post_body {
-  margin: 1.5em 0; }
+article.post {
+  margin-bottom: 2.5em; }
+  article.post > time {
+    color: #003d00; }
+  article.post > a > h3 {
+    font-size: 1.6em; }
+  article.post > .post_body {
+    font-size: 13px;
+    font-family: Geneya, Arial, sans-serif;
+    margin: 1.5em 0; }
+    article.post > .post_body h3 {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #777777; }
+    article.post > .post_body > p {
+      margin-bottom: 1.5em; }
+    article.post > .post_body > ul {
+      padding-left: 2.5em;
+      margin-top: 1.5em;
+      margin-bottom: 1.5em; }
+      article.post > .post_body > ul > li {
+        list-style-type: disc;
+        margin-bottom: 1em; }
 
 /* master */
 html > body {

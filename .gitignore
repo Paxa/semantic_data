@@ -3,3 +3,5 @@ db/*.sqlite3
 log/*.log
 tmp/
 public/javascripts/Packages/
+public/javascripts/jsus/
+public/stylesheets/

@@ -4,7 +4,7 @@ $footer: $baseline * 2.5
 
 html > body
   :background
-    :image url('/images/backgrounds/lines.png')
+    :image base64('backgrounds/lines.png')
   :height 100%
   :font
     :family Geneva, Georgia, Georgia, serif
@@ -30,21 +30,3 @@ input
   :position relative
   +grid-container
   :min-height 100%
-  
-  > footer
-    :margin-top 1.4em
-    :border-top 0.1em dashed #ccc
-    :padding 1em 0
-    :position relative
-
-    > *
-      :margin-right 0.5em
-      
-    > a.google-plus
-      :position relative
-      :top 4px
-    
-    > div
-      :position absolute
-      :top 13px
-      :right 0

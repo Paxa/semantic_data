@@ -7,8 +7,6 @@
     /[if IE]
       = stylesheet_link_tag "ie"
       = javascript_include_tag 'html5'
-      
-    = jsus_include "SemanticDatas:*", :development => 'include', :production => 'compressed'
     
     = rss_link :href => rss_self_url
     
@@ -30,3 +28,5 @@
       = render 'shared/header'
       = yield
       = render 'shared/footer'
+      
+      = jsus_include "SemanticDatas:*", :development => 'include', :production => 'compressed'

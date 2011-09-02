@@ -1,7 +1,7 @@
 atom_feed :language => "en-US" do |feed|
   feed.title @blog[:title]
   feed.updated @blog[:updated_at]
-  feed.link @blog[:url]
+  feed.link @blog[:link]
   feed.subtitle @blog[:description]
 
   @posts.each do |post|

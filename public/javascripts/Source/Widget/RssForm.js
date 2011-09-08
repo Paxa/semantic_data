@@ -9,6 +9,7 @@ authors:
 requires:
   - SemanticDatas.Widget
   - More/URI
+  - Core/Request
 
 provides:
   - SemanticDatas.Widget.RssForm
@@ -29,7 +30,33 @@ SemanticDatas.Widget.RssForm = new Class({
      'change': this.generateRssUrl.bind(this),
      'keyup': this.generateRssUrl.bind(this)
     });
+    
+    this.element.getElements(".get_peview").addEvent("click", function(e) {
+      e.stop();
+      this.makePreview();
+    }.bind(this));
+    
+    if (window.location.hash.length > 3) {
+      this.element['feed[url]'].value = window.location.hash.replace(/^#/, "");
+      this.generateRssUrl()
+    }
   }),
+  
+  makePreview: function () {
+    var url = this.generateRssUrl().replace(/http:\/\/([^\/]+)/, "");
+    
+    new Request({
+      url: url,
+      onComplete: this.showPreviewPosts
+    }).GET()
+  },
+  
+  showPreviewPosts: function (content, tree) {
+    var ch = Element.getElement(tree, 'channel');
+    var title = ch.getElement('title').get('text');
+    var description = ch.getElement('description').get('text');
+    console.log(title, description);
+  },
   
   generateRssUrl: function () {
     var uri = new URI("http://" + this.options.host + this.options.path);
@@ -40,6 +67,9 @@ SemanticDatas.Widget.RssForm = new Class({
     
     var html = this.options.htmlTemplate.replace("{URL}", uri.toString());
     this.element.getElement('.result_html').set('value', html);
+    
+    window.location.hash = this.element['feed[url]'].value;
+    return uri.toString();
   },
   
   collectData: function () {

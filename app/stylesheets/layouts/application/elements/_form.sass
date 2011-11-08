@@ -7,8 +7,9 @@ section.window
   > section.form
     :padding 1em $index_form_offset
     :background-color #F1E9E0
+    +gradient(#D1E9F5, #D7EEF9)
     :margin 1.5em 0
-    +border-radius(10px)
+    +border-radius(8px)
   
     fieldset
       > input
@@ -17,17 +18,24 @@ section.window
         :line-height 1.5em
 
       input[type=text]
+        +box-shadow(inset 1px 1px 1px rgba(150, 150, 150, 0.3))
         :width $index_input_width - 12px
         :margin-right $index_button_offset
         :border 1px solid #bababa
         :padding 0.25em 5px
 
       input[type=submit]
+        :color #fff
         :border 1px solid #9EC2B6
         :background-color #AAE0CC
+        +gradient(#838A90, #414549)
         :width $index_button_width - 2px
         +border-radius(5px)
         :padding 0.25em 0
+        &:active
+          :position relative
+          :top 1px
+          +box-shadow(inset 3px 3px 3px rgba(50, 50, 50, 0.5))
       
     > footer
       :margin-top 0.7em

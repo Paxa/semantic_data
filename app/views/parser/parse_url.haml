@@ -1,6 +1,6 @@
 %p.note
-  This content available in JSON format at
-  %code= "http://semantic_datas.dev/#{parser_parse_url_path(:url => params[:url], :format => 'json')}"
+  This content available via JSON API at:
+  %code= "http://#{HOST}#{parser_parse_url_path(:url => params[:url], :format => 'json')}"
   
 .found_items
   = pretty_json_format(@doc_hash)

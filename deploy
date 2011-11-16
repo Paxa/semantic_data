@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
-# sitemap:refresh:no_ping
+`dotcloud push mdtools`
+
 commands = "
 cd ~/current
 rm -rf public/javascripts/jsus/*
@@ -10,4 +11,4 @@ RAILS_ENV=production rake db:migrate lsd:relink_packages sass:update
 
 `dotcloud run mdtools.www -- "#{commands}"`
 
-#  db:migrate posts:reload
+#  db:migrate posts:reload sitemap:refresh:no_ping

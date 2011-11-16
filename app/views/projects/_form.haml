@@ -1,0 +1,15 @@
+= form_for @project do |f|
+  - if @project.errors.any?
+    #error_explanation
+      %h4
+        = pluralize(@project.errors.count, "error")
+        happen before saving:
+      %ul
+        - @project.errors.full_messages.each do |msg|
+          %li= msg
+  %p
+    = f.label :url
+    = f.url_field :url
+  
+  %p
+    = f.submit

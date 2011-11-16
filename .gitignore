@@ -5,3 +5,5 @@ tmp/
 public/javascripts/Packages/
 public/javascripts/jsus/
 public/stylesheets/
+lib/linker/linker.o
+lib/linker/linker.bundle

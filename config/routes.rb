@@ -9,6 +9,8 @@ SemanticDatas::Application.routes.draw do
     
   end
   
+  resources :projects
+  
   resources :rss do
     collection do
       get :feed

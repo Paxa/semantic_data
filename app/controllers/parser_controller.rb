@@ -1,6 +1,6 @@
 class ParserController < ApplicationController
   def get_items
-    params[:url] = "http://#{params[:url]}" unless params[:url] =~ %r{http:\/\/.*}
+    params[:url] = "http://#{params[:url]}" unless params[:url] =~ %r{^https?:\/\/.*}
   end
   
   def parse_url

@@ -7,16 +7,16 @@ class ApplicationController < ActionController::Base
     require "timeout"
 
     begin
-      content = open(url).read
+      content = Http.get(url)
     rescue => e
       Rails.logger.info e.class
       Rails.logger.info e.message
       @error_message = case e
         when URI::InvalidURIError then "Invalid url"
         when SocketError then "nodename nor servname provided, or not known"
-        when OpenURI::HTTPError then e.message
-        when Timeout::Error then "Timeout error"
-        when Errno::ENOENT then "Host unreachable"
+        when OpenURI::HTTPError, Patron::ConnectionFailed then e.message
+        when Timeout::Error, Patron::TimeoutError then "Timeout error"
+        when Errno::ENOENT, Patron::HostResolutionError then "Host unreachable"
         else "Unknown error"
       end
     end

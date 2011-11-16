@@ -1,12 +1,13 @@
 #!/usr/bin/env ruby
 
+# sitemap:refresh:no_ping
 commands = "
 cd ~/current
 rm -rf public/javascripts/jsus/*
 rm -rf public/stylesheets
-RAILS_ENV=production rake lsd:relink_packages sass:update sitemap:refresh:no_ping
+RAILS_ENV=production rake db:migrate lsd:relink_packages sass:update
 ".strip.split("\n").join(" && ")
 
-`dotcloud run microdata.www -- "#{commands}"`
+`dotcloud run mdtools.www -- "#{commands}"`
 
 #  db:migrate posts:reload

@@ -35,6 +35,6 @@ production:
   database: semantic_datas
   pool: 5
   username: root
-  password: "sDERQw44pw3Guvr5sHBB"
-  host: "fad9b81d.dotcloud.com"
-  port: 13326
+  password: "bSmGhJQuqXDzNasTCEKW"
+  host: "mdtools-LRN6Y5WX.dotcloud.com"
+  port: "17956"

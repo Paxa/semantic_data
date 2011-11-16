@@ -14,8 +14,8 @@ class Haml::Buffer
   
   def parse_object_ref(ref)
     options = {}
-    
     ref.each do |obj|
+      next if obj == "local-variable"
       self.class.merge_attrs(options, process_object_ref(obj))
     end
     
@@ -31,6 +31,8 @@ class Haml::Buffer
     elsif obj.kind_of?(Mida::Vocabulary)
       # Mida::Vocabulary => itemprop and itemtype
       return {:itemscope => true, :itemtype => obj.itemtype.source}
+    elsif obj.is_a?(String)
+      return {:class => obj}
     else
       options = {}
       options[:class] = obj.respond_to?(:haml_object_ref) ? obj.haml_object_ref : underscore(obj.class)
@@ -40,8 +42,13 @@ class Haml::Buffer
       if obj.respond_to?(:html_schema_type)
         options[:itemscope] = true
         options[:itemid] = obj.id
-        raise "No vocabulary found (#{ref.html_schema_type})" unless Mida::Vocabulary.find(obj.html_schema_type)
-        options[:itemtype] = obj.html_schema_type
+        
+        if obj.html_schema_type.kind_of?(Mida::Vocabulary)
+          options[:itemtype] = obj.html_schema_type.itemtype.source
+        else
+          raise "No vocabulary found (#{obj.html_schema_type})" unless Mida::Vocabulary.find(obj.html_schema_type)
+          options[:itemtype] = obj.html_schema_type
+        end
       end
       
       return options

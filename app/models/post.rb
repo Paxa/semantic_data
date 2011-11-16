@@ -26,7 +26,7 @@ class Post < ActiveRecord::Base
     require 'rdiscount'
     record.body = RDiscount.new(lines.join("\n").strip).to_html
     
-    puts(record.new_record? ? "Creating" : "Updating" + " post #{record.link}")
+    puts((record.new_record? ? "Creating" : "Updating") + " post #{record.link}")
     record.save
   end
 end

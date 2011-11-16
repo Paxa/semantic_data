@@ -37,4 +37,4 @@ production:
   username: root
   password: "bSmGhJQuqXDzNasTCEKW"
   host: "mdtools-LRN6Y5WX.dotcloud.com"
-  port: "17956"
+  port: 17956

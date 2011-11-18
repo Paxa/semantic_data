@@ -10,8 +10,8 @@ GIT
 
 GIT
   remote: git://github.com/Paxa/mida.git
-  revision: d92ed244ff4b247894b32cb9c92cbdf10e447284
-  ref: d92ed244ff
+  revision: 342f5ceab7649afc9e3fba95d5017b73de519b10
+  ref: 342f5ceab7
   specs:
     mida (0.3.3)
       blankslate

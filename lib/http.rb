@@ -76,8 +76,8 @@ module Http
   def session_for(base)
     sess = Patron::Session.new
     sess.base_url = base
-    sess.connect_timeout = 3
-    sess.timeout = 60
+    sess.connect_timeout = 5
+    sess.timeout = 120
     sess.headers['User-Agent'] = USER_AGENT
     sess
   end

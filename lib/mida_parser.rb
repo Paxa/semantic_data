@@ -4,25 +4,29 @@ class MidaParser
   def initialize(project, levels = 5)
     @project = project
     @levels = levels
-    @pages_scanned = 0
   end
   
   def parse!
     links = [@project.url]
     @found_urls = [@project.url]
-    
-    @levels.times do |ln|
-      new_links = []
-      links.each do |link|
-        html = Http.get(link)
-        @pages_scanned += 1
-        new_links.push *extract_links(html, link)
-        parse_for_microdata(html, link)
-      end
+    @pages_scanned = 0
+
+    begin
+      @levels.times do |ln|
+        new_links = []
+        links.each do |link|
+          html = Http.get(link)
+          @pages_scanned += 1
+          new_links.push *extract_links(html, link)
+          parse_for_microdata(html, link)
+        end
       
-      links = new_links
+        links = new_links
+      end
+    rescue => e
+      puts e.message
+      puts e.backtrace
     end
-    
     @project.update_attribute(:pages_scanned, @pages_scanned)
     get_description!
     

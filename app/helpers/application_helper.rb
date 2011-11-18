@@ -24,10 +24,11 @@ module ApplicationHelper
     "http://#{HOST}/rss/feed.rss?#{Rack::Utils.universal_build(:url => posts_url)}"
   end
   
-  #%time{:datetime => post.published_at.iso8601(10), :itemprop => "datePublished" }= post.published_at.strftime("%d %h %Y")
+  #%time{:datetime => post.published_at.iso8601(10) }= post.published_at.strftime("%d %h %Y")
+  # = time_tag post.created_at, itemprop: "datePublished"
   def time_tag(time, options = {})
     format = options.delete(:format) || "%d %h %Y"
-    default_options = {:datetime => time.iso8601(10)}
+    default_options = {datetime: time.iso8601(10)}
     content_tag(:time, time.strftime(format), default_options.merge(options))
   end
   

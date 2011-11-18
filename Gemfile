@@ -1,6 +1,6 @@
 source :rubygems
 
-gem 'rails', '3.0.10'
+gem 'rails', '3.0.11'
 gem 'mysql2', '~> 0.2.6'
 gem 'rake', '0.9.2.2', require: false
 gem 'sass'

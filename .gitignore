@@ -7,3 +7,4 @@ public/javascripts/jsus/
 public/stylesheets/
 lib/linker/linker.o
 lib/linker/linker.bundle
+lib/linker/Makefile

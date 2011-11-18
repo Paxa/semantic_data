@@ -2,6 +2,7 @@
   %header
     = link_to project.url, itemprop: 'url', target: "_blank" do
       %h3[:name]<>= project.title
+    = " "
     - if project.source_code.present?
       = link_to "(source code)", project.source_code, class: "source_link", target: "_blank"
   %section[:description]

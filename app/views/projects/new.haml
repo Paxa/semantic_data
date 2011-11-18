@@ -15,7 +15,7 @@
     = render "shared/validation_errors", object: @project if @project.errors.present?
     %p
       = f.label :url
-      = f.url_field :url
+      = f.url_field :url, style: "width: 400px"
   
     %p
       = f.submit "Submt"

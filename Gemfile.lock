@@ -18,6 +18,13 @@ GIT
       nokogiri (>= 1.5)
 
 GIT
+  remote: git://github.com/edouard/rchardet.git
+  revision: d3d0d94fb2499fa6a97752954f340459e9bee8c7
+  ref: d3d0d94fb2
+  specs:
+    edouard-rchardet (1.3.4.1)
+
+GIT
   remote: git://github.com/toland/patron.git
   revision: 6105403e5c8840dce6ca837b7bb4f471225faa8c
   ref: 6105403e5c
@@ -125,6 +132,7 @@ PLATFORMS
 
 DEPENDENCIES
   coderay
+  edouard-rchardet!
   haml (~> 3.1)
   jsus!
   lsd_rails (= 0.1.4)

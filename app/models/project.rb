@@ -16,8 +16,7 @@ class Project < ActiveRecord::Base
     save
   end
   
-  def run_bg_parser!
-    Rails.bg_runner "MidaParser.new(Project.find(#{self.id})).parse!"
+  def parse
+    MidaParser.new(self).parse!
   end
-  
 end

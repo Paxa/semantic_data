@@ -3,17 +3,19 @@
 require "pathname"
 raise "no env specified" unless ARGV.first
 
+`echo '#{ARGV.inspect}' >> /tmp/1`
 if !fork
   Process.setsid
   
   STDIN.reopen '/dev/null'
-  STDOUT.reopen '/dev/null', 'a'
+  STDOUT.reopen '/tmp/1', 'a'
   STDERR.reopen STDOUT
   
   dir = Pathname.new(__FILE__).dirname.join("..").expand_path
   env = ARGV.shift
-  code = ARGV.first.to_s.gsub(/("|\s)/) {|m| "\\#{m}" }
-  command = %{RAILS_ENV=#{env} cd #{dir} && bundle exec rails runner "#{code}"}
+  code = ARGV.first.to_s.gsub(/('|\s)/) {|m| "\\#{m}" }
+  command = %{RAILS_ENV=#{env} cd #{dir} && bundle exec rails runner '#{code}'}
+  puts command
   `#{command}`
 else
   puts "ok"

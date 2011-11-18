@@ -46,5 +46,5 @@ def Rails.bg_runner(code)
   cmd = %{cd #{Rails.root} && ./script/background #{Rails.env} "#{ruby_cmd}"}
   
   Rails.logger.info "IN BACKGROUND #{cmd}"
-  Rails.logger.info `cmd`
+  Rails.logger.info system(cmd)
 end

@@ -41,7 +41,7 @@ class ProjectsController < ApplicationController
   end
   
   def run_parser
-    @project.run_bg_parser!
+    Rails.bg_runner "Project.find(#{@project.id}).parse"
     redirect_to admin_projects_path, notice: "Parsing started"
   end
   

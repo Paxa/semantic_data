@@ -18,7 +18,7 @@ GIT
       nokogiri (>= 1.5)
 
 GIT
-  remote: https://github.com/toland/patron.git
+  remote: git://github.com/toland/patron.git
   revision: 6105403e5c8840dce6ca837b7bb4f471225faa8c
   ref: 6105403e5c
   specs:

@@ -13,7 +13,7 @@ gem 'mida', git: 'git://github.com/Paxa/mida.git', ref: 'd92ed244ff'
 gem 'yajl-ruby', require: 'yajl'
 gem 'coderay'
 gem 'sitemap_generator'
-gem 'patron', git: 'https://github.com/toland/patron.git', ref: '6105403e5c'
+gem 'patron', git: 'git://github.com/toland/patron.git', ref: '6105403e5c'
 
 gem 'uglifier', require: false
 gem 'rdiscount', require: false

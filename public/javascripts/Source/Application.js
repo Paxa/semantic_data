@@ -14,7 +14,7 @@ requires:
   - Widgets/LSD.Widget.Body
   - Native/LSD.Native.Input
   - LSD/LSD.Mixin.Placeholder
-  - Rails3/driver
+  - Rails3driver
 
 provides: [Application]
 ...

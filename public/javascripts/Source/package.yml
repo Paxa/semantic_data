@@ -15,6 +15,7 @@ authors: ["Your name"]
 sources:
   - "SemanticDatas.js"
   - "Application.js"
+  - "Rails.js"
   - "Widget.js"
   - "Widget/Loader.js"
   - "Widget/RssForm.js"

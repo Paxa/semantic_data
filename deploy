@@ -3,6 +3,9 @@
 `dotcloud push mdtools`
 
 commands = "
+cd ~/current/lib/linker
+ruby ./extconf.rb
+make
 cd ~/current
 rm -rf public/javascripts/jsus/*
 rm -rf public/stylesheets

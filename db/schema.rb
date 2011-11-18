@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111116043535) do
+ActiveRecord::Schema.define(:version => 20111118064700) do
 
   create_table "parsings", :force => true do |t|
     t.string   "url"
@@ -31,13 +31,15 @@ ActiveRecord::Schema.define(:version => 20111116043535) do
   end
 
   create_table "projects", :force => true do |t|
-    t.string   "name"
+    t.string   "title"
     t.string   "url"
     t.text     "item_types"
-    t.string   "state"
+    t.string   "status"
     t.string   "source_code"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "description"
+    t.integer  "pages_scanned"
   end
 
 end

@@ -12,12 +12,16 @@ class Mida::Item
   end
 end
 
-def Mida(itemtype)
+def Mida(itemtype, addition = nil)
   if itemtype.is_a?(Symbol)
     itemtype = "http://schema.org/#{itemtype}"
   end
 
-  Mida::Vocabulary.find(itemtype)
+  if addition
+    Mida::Vocabulary.find(itemtype).itemtype.source + "/#{addition}"
+  else
+    Mida::Vocabulary.find(itemtype)
+  end
 end
 
 require "uri"

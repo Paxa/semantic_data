@@ -9,6 +9,8 @@
       = javascript_include_tag 'html5'
     
     = rss_link :href => rss_self_url
+    %meta{:name => "description", :content => "Microdata tools - tool for inspection and debugging microdata html-layout, rss generator from blog html-layout with microdata, list of useful articles, collection of projects already uses microdata layout."}
+    
     
     - if Rails.env.production?
       :javascript

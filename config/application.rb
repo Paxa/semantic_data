@@ -40,3 +40,11 @@ module SemanticDatas
     config.filter_parameters += [:password]
   end
 end
+
+def Rails.bg_runner(code)
+  ruby_cmd = code.gsub(/("|\s)/) {|m| "\\#{m}" } 
+  cmd = %{cd #{Rails.root} && ./script/background #{Rails.env} "#{ruby_cmd}"}
+  
+  Rails.logger.info "IN BACKGROUND #{cmd}"
+  Rails.logger.info `cmd`
+end

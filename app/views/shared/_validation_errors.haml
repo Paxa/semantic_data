@@ -1,0 +1,8 @@
+- if object.errors.any?
+  #error_explanation
+    %h4
+      = pluralize(object.errors.count, "error")
+      happen before saving:
+    %ul
+      - object.errors.full_messages.each do |msg|
+        %li= msg

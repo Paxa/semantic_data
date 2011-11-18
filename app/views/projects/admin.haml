@@ -1,0 +1,32 @@
+%section.admin
+  %h2 Projects admin
+  
+  %table
+    %thead
+      %tr
+        - for fi in %w{id name status item_types created_at pages_scanned}
+          %th= fi
+        %th
+      
+    %tbody
+      - for project in @projects
+        %tr
+          %td= project.id
+          %td(width=200)
+            = project.title
+            = link_to truncate(project.url), project.url, :target => "_blank"
+          %td
+            - for status in Project::STATUSES
+              - if project.status == status
+                %b= status
+              - else
+                = link_to status, status_project_path(project, new: status), method: 'put'
+          %td(width=200)
+            - for item_type in project.item_types.to_s.split(" ")
+              %span.high<>= item_type
+          %td= time_tag project.created_at, format: "%d %h %Y %R%p"
+          %td= project.pages_scanned
+          %td
+            = link_to "Edit", edit_project_path(project)
+            = link_to "Run parser", [:run_parser, project], method: 'put'
+            = link_to "Delete", project, method: 'delete', confirm: "Sure?"

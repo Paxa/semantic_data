@@ -1,0 +1,58 @@
+section.admin
+  > h2
+    :font-size 1.7em
+    :padding-bottom 1.5em
+    :margin-left 200px
+  
+  #error_explanation
+    :margin-left 200px
+    > h4
+      :color #444
+      :font-weight bold
+      
+    > ul
+      :padding-left 25px
+      :list-style-type disc
+  
+  > table
+    :border-left 1px solid #dfdfdf
+    th
+      +gradient(#dfdfdf, #f6f6f6)
+      :padding
+        :top 4px
+        :bottom 7px
+      :margin-bottom 4px
+      :color #666
+
+    td, th
+      :border-right 1px solid #ddd
+      :padding
+        :left 5px
+        :right 5px
+    td
+      :border-bottom 1px solid #dfdfdf
+      
+  span.high
+    +inline-block
+    :background-color #FFFFB8
+    :padding 0 3px
+    :margin .25em .2em
+    :line-height 1.3em
+  
+  .field_with_errors
+    :color red
+  
+  form > p
+    :margin .5em .2em
+    +children-inline
+    > label
+      :width 200px
+      :text-align right
+      :padding
+        :top 3px
+    > input[type=text], > input[type=url], textarea
+      :width 400px
+  p.submit
+    :margin
+      :top .9em
+      :left 200px

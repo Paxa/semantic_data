@@ -1,2 +1,21 @@
-%section.new_project
-  = render "form"
+- @page_title = "Suggest project"
+
+%section.window.new_project
+  %h2 Suggest project
+  
+  %p 
+    It should:
+    %ul
+      %li use microdata for good, not for evil
+      %li have a valid html layout
+      %li made in order to modern web standard
+      %li contain useful information
+      
+  = form_for @project do |f|
+    = render "shared/validation_errors", object: @project if @project.errors.present?
+    %p
+      = f.label :url
+      = f.url_field :url
+  
+    %p
+      = f.submit "Submt"

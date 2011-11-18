@@ -1,4 +1,7 @@
-= link_to "Suggest project!", new_project_path
+- @page_title = "Projects"
 
-%section.projects
+%section.window.projects
+  %header
+    = link_to "Suggest project!", new_project_path, :class => "button"
+  
   = render @projects

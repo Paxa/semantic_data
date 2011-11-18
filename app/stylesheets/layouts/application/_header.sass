@@ -5,7 +5,7 @@ body > .header_bg
   :top 0
   :height 74px
   :background
-    :color #262b5a
+    :color #282C58
     
 #container > header
   :padding-bottom 2em
@@ -23,5 +23,17 @@ body > .header_bg
       +children-inline
       > li
         :margin-right 0.8em
+        i
+          :font-style normal
+          :color #f77
+          :text-decoration none
       a, a span
         :color #F0F0F0
+        
+.flash
+  :padding .45em 1em
+  +border-radius(4px)
+  :margin-bottom 1.35em
+  &.notice
+    :background-color #d7f3d1
+    :color #1d3817

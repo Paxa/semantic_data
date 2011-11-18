@@ -5,8 +5,11 @@
       
   %nav
     %ul
-      %li>= link_to("Analyzation", root_path)
-      %li>= link_to("Microdata to RSS", rss_path)
-      -#%li>= #link_to("Articles", articles_path)
-      %li>= link_to("External resources", external_resources_path)
-      %li>= link_to("Blog", posts_path)
+      %li>= link_to "Analyzation", root_path
+      %li>= link_to "Microdata to RSS", rss_path
+      %li>= link_to "External resources", external_resources_path
+      %li>= link_to "Blog", posts_path
+      %li>= link_to raw("Projects <i>(New!)</i>"), projects_path
+
+- flash.each do |ftype, message|
+  .flash{:class => ftype}>= message

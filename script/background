@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+require "pathname"
+raise "no env specified" unless ARGV.first
+
+if !fork
+  Process.setsid
+  
+  STDIN.reopen '/dev/null'
+  STDOUT.reopen '/dev/null', 'a'
+  STDERR.reopen STDOUT
+  
+  dir = Pathname.new(__FILE__).dirname.join("..").expand_path
+  env = ARGV.shift
+  code = ARGV.first.to_s.gsub(/("|\s)/) {|m| "\\#{m}" }
+  command = %{RAILS_ENV=#{env} cd #{dir} && bundle exec rails runner "#{code}"}
+  `#{command}`
+else
+  puts "ok"
+end

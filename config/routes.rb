@@ -9,7 +9,16 @@ SemanticDatas::Application.routes.draw do
     
   end
   
-  resources :projects
+  resources :projects do
+    collection do
+      get :admin
+    end
+    
+    member do
+      put :status, to: 'projects#set_status'
+      put :run_parser
+    end
+  end
   
   resources :rss do
     collection do
@@ -25,3 +34,4 @@ SemanticDatas::Application.routes.draw do
   get "parser/parse_url", :to => "parser#parse_url"
 
 end
+

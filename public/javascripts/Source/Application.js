@@ -14,6 +14,7 @@ requires:
   - Widgets/LSD.Widget.Body
   - Native/LSD.Native.Input
   - LSD/LSD.Mixin.Placeholder
+  - Rails3/driver
 
 provides: [Application]
 ...
@@ -32,4 +33,14 @@ SemanticDatas.Application = new LSD.Document({
     'section.item_loader': 'loader',
     'form.rss_form': 'RssForm'
   }
+});
+
+
+window.addEvent('domready', function() {
+  $$('form[data-remote="true"], a[data-remote="true"], input[data-remote="true"], a[data-method][data-remote!=true]').removeEvents('click');
+  rails.csrf = {
+    token: rails.getCsrf('token'),
+    param: rails.getCsrf('param')
+  };
+  rails.applyEvents();
 });

@@ -1,0 +1,32 @@
+%section.admin
+  %h2= "Edit project ##{@project.id}"
+  = form_for @project do |f|
+    = render "shared/validation_errors", object: @project if @project.errors.present?
+    
+    %p
+      = f.label :title
+      = f.text_field :title
+      
+    %p
+      = f.label :description
+      = f.text_area :description, rows: 6
+      
+    %p
+      = f.label :url
+      = f.url_field :url
+      
+    %p
+      = f.label :status
+      = f.select :status, Project::STATUSES
+      
+    %p
+      = f.label :item_types
+      = f.text_area :item_types, rows: 6
+      
+    %p
+      = f.label :source_code
+      = f.text_field :source_code
+  
+    %p.submit
+      = f.submit
+      = link_to "Back", admin_projects_path

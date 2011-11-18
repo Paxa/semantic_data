@@ -1,0 +1,64 @@
+section.window.projects
+  > header
+    > a.button
+      :position relative
+      :top 0px
+      +transition(all 2s ease-out)
+      +inline-block
+      +border-radius(7px)
+      :background
+        :color #8cd4f9
+        :image url('/images/backgrounds/button.png')
+      :border 1px solid #82c5e7
+      :color #222
+      :text-decoration none
+      :font-size 14px
+      :padding 4px 13px
+      :font-family arial
+      +box-shadow(0px 1px 1px rgba(0, 0, 0, 0.35))
+      :margin
+        :top .5em
+        :bottom 1.5em
+      
+      &:hover
+        :border-color #5baed8
+        
+      &:active
+        :top 1px
+        +box-shadow(inset 0px 1px 0px rgba(0, 0, 0, 0.25))
+        :background-color #7accf6
+        :border
+          :color #76cbf6
+          :left-color #7eb2cc
+          :top-color #7eb2cc
+  
+  > article.project
+    :margin
+      :top .5em
+      :bottom 1.8em
+    > header  
+      :margin-bottom .5em
+      > a
+        :color #295d9f
+        > h3
+          +inline-block
+          :font
+            :size 13px
+            :weight bold
+    
+    > ul
+      :margin-top .5em
+      :padding-left 1.5em
+      > li
+        :list-style-type disc
+        :margin-bottom .3em
+        span
+          :background-color #FFFFC7
+          :padding 1px 4px
+          :line-height 1.5em
+          :width auto
+          
+section.window.new_project
+  form
+    p
+      :margin .5em 0

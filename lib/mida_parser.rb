@@ -4,6 +4,7 @@ class MidaParser
   def initialize(project, levels = 5)
     @project = project
     @levels = levels
+    @pages_scanned = 0
   end
   
   def parse!
@@ -14,12 +15,16 @@ class MidaParser
       new_links = []
       links.each do |link|
         html = Http.get(link)
+        @pages_scanned += 1
         new_links.push *extract_links(html, link)
         parse_for_microdata(html, link)
       end
       
       links = new_links
     end
+    
+    @project.update_attribute(:pages_scanned, @pages_scanned)
+    get_description!
     
     @project.item_types.to_s.split(" ")
   end
@@ -52,5 +57,19 @@ class MidaParser
     end
     
     types.uniq
+  end
+  
+  def get_description!
+    doc = Nokogiri::HTML(Http::get(@project.url))
+    
+    @project.title = doc.at_css('title').try(:text) unless @project.title.present?
+    
+    unless @project.description.present?
+      @project.description = doc.at_css('meta[name=description]').try(:attr, 'content')
+    end
+    
+    @project.source_code = doc.at_css('a[rel=source_code]').try(:attr, 'href') unless @project.source_code.present?
+    
+    @project.save!
   end
 end

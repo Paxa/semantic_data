@@ -12,13 +12,20 @@ class Mida::Item
   end
 end
 
+class Mida::Vocabulary::Fake < Mida::Vocabulary
+  attr_reader :itemtype
+  def initialize(itemtype)
+    @itemtype = %r{itemtype}
+  end
+end
+
 def Mida(itemtype, addition = nil)
   if itemtype.is_a?(Symbol)
     itemtype = "http://schema.org/#{itemtype}"
   end
 
   if addition
-    Mida::Vocabulary.find(itemtype).itemtype.source + "/#{addition}"
+    Mida::Vocabulary::Fake.new(Mida::Vocabulary.find(itemtype).itemtype.source + "/#{addition}")
   else
     Mida::Vocabulary.find(itemtype)
   end

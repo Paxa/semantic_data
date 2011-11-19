@@ -15,7 +15,7 @@ end
 class Mida::Vocabulary::Fake < Mida::Vocabulary
   attr_reader :itemtype
   def initialize(itemtype)
-    @itemtype = %r{itemtype}
+    @itemtype = %r{#{itemtype}}
   end
 end
 

@@ -20,7 +20,8 @@
             = link_to parsing.url, parsing.url, :target => "_blank"
             %span<
               (
-              %a{:href => get_items_path(:url => parsing.url)}<>= %{#{parsing.items_count} #{parsing.items_count > 1 ? "items" : "item"}}
+              %a{:href => get_items_path(:url => parsing.url), :rel => "nofollow"}<>
+                = %{#{parsing.items_count} #{parsing.items_count > 1 ? "items" : "item"}}
               )
 
     %aside>

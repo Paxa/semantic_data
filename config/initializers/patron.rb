@@ -9,7 +9,3 @@ class Patron::Response
     end
   end
 end
-
-#encoding = CharDet.detect(file_content)
-#converter = Encoding::Converter.new(encoding[:encoding].name.upcase, "UTF-8")
-#converter.convert(file_content)

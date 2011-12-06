@@ -21,7 +21,10 @@ gem 'patron', git: 'git://github.com/toland/patron.git', ref: '6105403e5c'
 gem "edouard-rchardet", git: "git://github.com/edouard/rchardet.git", ref: "d3d0d94fb2", require: "rchardet"
 
 gem 'uglifier', require: false
-gem 'rdiscount', require: false
+gem "redcarpet", "2.0", require: false
+gem 'github-markup', require: false
+gem 'pygments.rb', require: false
+gem 'disqus'
 
 group :production do
   gem 'therubyracer'

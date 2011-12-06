@@ -23,8 +23,7 @@ class Post < ActiveRecord::Base
     record.published_at = DateTime.parse(lines.shift)
     record.title = lines.shift
     
-    require 'rdiscount'
-    record.body = RDiscount.new(lines.join("\n").strip).to_html
+    record.body = GitHub::Markup.render(file.basename.to_s, lines.join("\n").strip)
     
     puts((record.new_record? ? "Creating" : "Updating") + " post #{record.link}")
     record.save

@@ -6,3 +6,5 @@
   .post_body[:articleBody]= post.body.html_safe
   
   = time_tag(post.published_at, :itemprop => "datePublished")
+
+= raw disqus_thread show_powered_by: false, developer: Rails.env.development?, account: 'microdatatools'

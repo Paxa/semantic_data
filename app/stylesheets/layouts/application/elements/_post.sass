@@ -3,10 +3,19 @@ article.post
   
   > time
     :color #003D00
+    :margin-top -4px
+    :padding-top 3px
+    :border-top 1px solid #eaeaea
     
   > a > h3
     :font-size 1.6em
-    
+  
+  b, em
+    :font-weight bold
+  
+  i
+    :font-style italic
+  
   > .post_body
     :font
       :size 13px
@@ -22,7 +31,13 @@ article.post
     
     > p
       :margin-bottom 1.5em
-    
+      
+    > p + .highlight
+      :margin-top -1em
+      
+    > .highlight ~ p
+      :margin-top 1.5em
+      
     > ul
       :padding
         :left 2.5em

@@ -1,4 +1,23 @@
 GIT
+  remote: git://github.com/Paxa/chronic_duration.git
+  revision: 8c0d0e101bdbaf2b2299f33e7bfa880b0885a017
+  ref: 8c0d0e101b
+  specs:
+    chronic_duration (0.9.6)
+      numerizer (~> 0.1.1)
+
+GIT
+  remote: git://github.com/Paxa/green_monkey.git
+  revision: f6d506cd861f4373f93d1c04be4e1e0317c70988
+  ref: f6d506cd861f
+  specs:
+    green_monkey (0.1)
+      chronic_duration
+      haml (>= 3.1.0)
+      mida (>= 0.3.3)
+      rails (>= 3.0.0)
+
+GIT
   remote: git://github.com/Paxa/jsus.git
   revision: 7c801d43710f2de2b38129fcdc8f9e2a9a2ae609
   ref: 7c801d4371
@@ -85,6 +104,7 @@ GEM
     multi_json (1.0.3)
     mysql2 (0.2.13)
     nokogiri (1.5.0)
+    numerizer (0.1.1)
     polyglot (0.3.3)
     rack (1.2.4)
     rack-mount (0.6.14)
@@ -113,7 +133,7 @@ GEM
       rake
       stream (>= 0.5)
     sass (3.1.7)
-    sitemap_generator (2.1.6)
+    sitemap_generator (2.1.7)
     stream (0.5)
     therubyracer (0.9.4)
       libv8 (~> 3.3.10)
@@ -131,8 +151,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  chronic_duration!
   coderay
   edouard-rchardet!
+  green_monkey!
   haml (~> 3.1)
   jsus!
   lsd_rails (= 0.1.4)

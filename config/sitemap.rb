@@ -1,6 +1,12 @@
 # Set the host name for URL creation
 SitemapGenerator::Sitemap.default_host = "http://microdata.realitysimple.com"
 SitemapGenerator::Sitemap.yahoo_app_id = "an12x876"
+
+def post_path(post, options = {})
+  post = Post.find(post) unless post.is_a?(Post)
+  "/posts/#{post.link}.html"
+end
+
 SitemapGenerator::Sitemap.create do
   # Put links creation logic here.
   #
@@ -22,7 +28,7 @@ SitemapGenerator::Sitemap.create do
   add external_resources_path, :priority => 0.7, :changefreq => 'weekly'
   
   Post.find_each do |post|
-    add post_path(post), :lastmod => post.updated_at
+    add "/posts/#{post.link}.html", :lastmod => post.updated_at
   end
   
   #

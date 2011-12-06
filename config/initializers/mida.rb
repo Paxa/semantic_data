@@ -11,3 +11,17 @@ class Mida::Item
     get_prop(prop_name).map(&:to_s).join(" ")
   end
 end
+
+class Mida::Itemprop
+  def extract_property_value
+    element = @element.name
+    if non_textcontent_element?(element)
+      attribute = NON_TEXTCONTENT_ELEMENTS[element]
+      if attribute_node = @element.attribute(attribute)
+        url_attribute?(attribute) ? make_absolute_url(attribute_node.value) : attribute_node.value
+      end
+    else
+      @element.inner_html.strip
+    end
+  end
+end

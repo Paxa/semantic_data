@@ -2,3 +2,5 @@
 
 %section.window.post
   = render @post, :single => true
+  
+  = raw disqus_thread show_powered_by: false, developer: Rails.env.development?, account: 'microdatatools'

@@ -39,7 +39,7 @@ module ApplicationHelper
   def page_title(site_title, options = {})
     options = {:seporator => ":"}.merge(options)
     if @page_title
-      "#{site_title}#{options[:seporator]} #{@page_title}"
+      "#{@page_title}"
     else
       site_title
     end

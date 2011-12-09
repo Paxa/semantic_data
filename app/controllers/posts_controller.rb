@@ -4,6 +4,11 @@ class PostsController < ApplicationController
   end
   
   def show
-    @post = Post.where(:link => params[:id]).first
+    if params[:id] =~ /^\d+$/
+      @post = Post.find(params[:id])
+    else
+      @post = Post.where(:link => params[:id]).first
+      raise ActiveRecord::RecordNotFound, "Post not fount" unless @post
+    end
   end
 end

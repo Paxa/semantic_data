@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
+  rescue_from ActionController::RoutingError, :with => :render_404
+  rescue_from ActionController::UnknownAction, :with => :render_404
+  rescue_from ActiveRecord::RecordNotFound, :with => :render_404
+  
   private
   def get_content(url)
     require "open-uri"
@@ -28,5 +32,9 @@ class ApplicationController < ActionController::Base
     authenticate_or_request_with_http_basic do |username, password|
       username == "Pavel" && password == "12345"
     end
+  end
+  
+  def render_404
+    render "welcome/not_found", status: 404
   end
 end

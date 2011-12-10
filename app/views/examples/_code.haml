@@ -1,5 +1,5 @@
 - source = File.read(code)
-- rendered = controller.render_to_string(code, layout: false)
+- rendered = render_haml_for_snippet(code)
 %section.example_code{:format => "html"}
   %menu
     %ul.tabs

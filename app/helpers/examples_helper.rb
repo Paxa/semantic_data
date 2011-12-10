@@ -14,8 +14,6 @@ module ExamplesHelper
   end
   
   def parse_example_code(path, rendered)
-    Rails.logger.info ["http://#{HOST}#{path}", rendered]
-    
     wrapped = "<html><head></head><body>#{rendered}</body></html>"
     
     doc = Mida::Document.new(wrapped, "http://#{HOST}#{path}")
@@ -25,4 +23,13 @@ module ExamplesHelper
     
     pretty_json_format(doc_hash)
   end
+  
+  def render_haml_for_snippet(file)
+    orig = Haml::Template.options[:ugly]
+    Haml::Template.options[:ugly] = false
+    result = controller.render_to_string(file, layout: false)
+    Haml::Template.options[:ugly] = orig
+    result
+  end
+  
 end

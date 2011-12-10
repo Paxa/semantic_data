@@ -83,7 +83,6 @@ GEM
     arel (2.0.10)
     blankslate (2.1.2.4)
     builder (2.1.2)
-    coderay (0.9.8)
     disqus (1.0.4)
       json
     erubis (2.6.6)
@@ -161,7 +160,6 @@ PLATFORMS
 
 DEPENDENCIES
   chronic_duration!
-  coderay
   disqus
   edouard-rchardet!
   github-markup

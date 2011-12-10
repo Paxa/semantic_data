@@ -11,7 +11,6 @@ gem 'lsd_rails', '0.1.4', require: 'lsd'
 
 gem 'mida', git: 'git://github.com/Paxa/mida.git', ref: '342f5ceab7'
 gem 'yajl-ruby', require: 'yajl'
-gem 'coderay'
 
 gem 'chronic_duration', git: 'git://github.com/Paxa/chronic_duration.git', ref: '8c0d0e101b'
 gem 'green_monkey', git: "git://github.com/Paxa/green_monkey.git", ref: 'f6d506cd861f'

@@ -11,8 +11,7 @@
     = rss_link :href => rss_self_url
     - if @description
       %meta{:name => "description", :content => @description}
-    
-    
+
     - if Rails.env.production?
       :javascript
         var _gaq = _gaq || [];
@@ -25,7 +24,7 @@
           var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
 
-  %body
+  %body[@body_itemtype]
     .header_bg
     
     #container

@@ -24,14 +24,6 @@ module ApplicationHelper
     "http://#{HOST}/rss/feed.rss?#{Rack::Utils.universal_build(:url => posts_url)}"
   end
   
-  #%time{:datetime => post.published_at.iso8601(10) }= post.published_at.strftime("%d %h %Y")
-  # = time_tag post.created_at, itemprop: "datePublished"
-  def time_tag(time, options = {})
-    format = options.delete(:format) || "%d %h %Y"
-    default_options = {datetime: time.iso8601(10)}
-    content_tag(:time, time.strftime(format), default_options.merge(options))
-  end
-  
   def menu_link(title, url, options = {})
     link_to(%{<span itemprop="title">#{title}</span>}.html_safe, url, options.merge(:itemprop => "url"))
   end
@@ -51,8 +43,6 @@ module ApplicationHelper
     options_map[:indent] = opts[:indent] if opts.has_key?(:indent)
     json = Yajl::Encoder.encode(obj, options_map)
     
-    tokens = CodeRay.scan(json, :json)
-    tokens.html(:line_numbers => :inline).html_safe
-    tokens.span.html_safe
+    raw Hightlighted.render(json, 'javascript')
   end
 end

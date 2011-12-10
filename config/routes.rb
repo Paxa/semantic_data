@@ -5,8 +5,13 @@ SemanticDatas::Application.routes.draw do
     end
   end
   
-  resources :posts do
-    
+  resources :posts
+  
+  match '/examples/:id/raw/:file' => 'examples#raw', :as => :raw_code_example
+  resources :examples do
+    member do
+      get :raw
+    end
   end
   
   resources :projects do
@@ -28,6 +33,7 @@ SemanticDatas::Application.routes.draw do
   
   root :to => "welcome#index"
   
+  get "admin" => "welcome#admin"
   get "external_resources", :to => "welcome#external_resources"
   
   get "get_items", :to => "parser#get_items"

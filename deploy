@@ -9,7 +9,7 @@ make
 cd ~/current
 rm -rf public/javascripts/jsus/*
 rm -rf public/stylesheets
-RAILS_ENV=production rake db:migrate lsd:relink_packages sass:update sitemap:refresh
+RAILS_ENV=production rake db:migrate lsd:relink_packages sass:update sitemap:refresh posts:reload examples:reload
 ".strip.split("\n").join(" && ")
 
 `dotcloud run mdtools.www -- "#{commands}"`

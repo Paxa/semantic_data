@@ -1,0 +1,11 @@
+%section[Mida(:Blog)]
+  %header
+    %p[:description] Daily news from Nick Bucket's pets (by themselves)
+
+  %article[Mida(:BlogPosting), :blogPosts]
+    %a[:url]{:href => "/petblog/1-the-birth"}
+      %h3[:name] Cat Aranda begining
+
+    .post_body[:articleBody] Today I have found new cat to join my family, very cute girl. I given she name Aranda.
+    
+    = time_tag(Time.parse("13-jule-2011"), :itemprop => "datePublished")

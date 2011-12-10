@@ -1,0 +1,12 @@
+- @page_title = "Microdata usage examples"
+
+%section.window.examples
+  %h1 Code snippets, examples
+  
+  - for example in @examples
+    %article
+      %h3= link_to example.title, example
+      %ul
+        - for type in example.itemtypes
+          %li= type
+      = time_tag example.created_at, :format => :date

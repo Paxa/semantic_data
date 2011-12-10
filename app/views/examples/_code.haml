@@ -1,0 +1,20 @@
+- source = File.read(code)
+- rendered = controller.render_to_string(code, layout: false)
+%section.example_code{:format => "html"}
+  %menu
+    %ul.tabs
+      %li.active>= link_to "HTML", '#', 'data-format' => 'html'
+      %li>= link_to "HAML", '#', 'data-format' => 'haml'
+      %li>= link_to "Items JSON", '#', 'data-format' => 'parsed'
+    
+    %aside
+      = image_tag "icons/tools.png"
+      = link_to "Raw HTML", raw_code_example_path(example, code), target: "_blank"
+      = link_to "Test with rich-snippets tool", richsnippets_url(raw_code_example_path(example, code)), target: "_blank"
+
+  .haml
+    = raw Hightlighted.render(File.read(code), 'haml')
+  .html
+    = raw Hightlighted.render(rendered, 'html')
+  .parsed
+    = parse_example_code(raw_code_example_path(example, code), rendered)

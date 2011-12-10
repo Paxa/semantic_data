@@ -27,5 +27,6 @@ class Post < ActiveRecord::Base
     
     puts((record.new_record? ? "Creating" : "Updating") + " post #{record.link}")
     record.save
+    record
   end
 end

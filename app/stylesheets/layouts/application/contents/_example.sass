@@ -1,0 +1,46 @@
+section.window.example
+  em, b
+    :color #23532c
+    
+  > .breadcrumbs
+    :font-size .9em
+    :position relative
+    :top -5px
+    :color #4b6c8e
+    
+  > h3
+    :font-size 1.2em
+  > ul
+    :padding-left .75em
+    :margin
+      :top .5em
+      :bottom 1.5em
+    > li
+      :list-style-type none
+      > span
+        :background-color #FFFFC7
+        :padding 1px 4px
+        :line-height 1.5em
+    > li + li
+      :margin-top 2px
+      
+  > .description
+    :margin 1.5em 0
+    
+  > footer
+    +children-inline
+    > time
+      :color #003D00
+    
+section.window.examples
+  > h1
+    :margin-bottom 1.2em
+    
+  > article
+    > h3
+      :font-size 1.1em
+      :line-height 1.7em
+    > ul
+      :color #444
+    > time
+      :color #003D00

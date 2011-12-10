@@ -1,0 +1,25 @@
+- @body_itemtype = Mida(:WebPage)
+- @page_title = "Examples: #{@example.title}"
+
+%section.window.example
+  .breadcrumbs[:breadcrumb]
+    = link_to "Examples", examples_path
+    = "=>"
+    
+  %h1[:name]= @example.title
+  
+  %h3 Item types:
+  
+  %ul
+    - for type in @example.itemtypes
+      %li
+        %span= type
+  
+  .description= raw @example.description
+  
+  - for code in @example.source_codes
+    = render "examples/code", code: code, example: @example
+    
+  %footer
+    Created at
+    = time_tag @example.created_at, format: :date

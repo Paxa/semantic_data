@@ -1,0 +1,6 @@
+date: 21-08-2011
+title: Blog example
+itemtypes:
+  - http://schema.org/Blog
+  - http://schema.org/BlogPosting
+description: "*http://schema.org/Blog* and *http://schema.org/BlogPosting* are supposed to markup personal blogs."

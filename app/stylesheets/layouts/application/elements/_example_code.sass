@@ -1,0 +1,50 @@
+section.example_code
+  :margin .75em 0
+  > .html, > .haml, >.parsed
+    :display none
+    > .highlight
+      :margin 0
+    
+  &[format=haml]
+    > .haml
+      :display block
+  &[format=html]
+    > .html
+      :display block
+  &[format=parsed]
+    > .parsed
+      :display block
+      
+  > menu
+    :display block
+    :position relative
+    +children-inline
+    :padding-bottom 0
+    > .tabs
+      +children-inline
+      > li
+        :padding 0 .5em
+        :margin-right .5em
+        +border-radius(5px)
+        +border-radius(0px, bottom, left)
+        +border-radius(0px, bottom, right)
+        :border 1px solid #ddd
+        :border-bottom none
+        > a
+          :line-height 2em
+          :color #4b6c8e
+        &.active
+          :border-color #bababa
+          :background-color #f8f8ff
+          :border-bottom 1px solid #f8f8ff
+          :margin-bottom -1px
+          > a
+            :color #0050a3
+    > aside
+      :position absolute
+      :right 0
+      :text-align right
+      :font-size .9em
+      > img
+        :position relative
+        :top .29em

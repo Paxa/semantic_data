@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111118064700) do
+ActiveRecord::Schema.define(:version => 20111210064206) do
+
+  create_table "examples", :force => true do |t|
+    t.string   "title"
+    t.string   "link"
+    t.text     "description"
+    t.text     "source_codes"
+    t.text     "itemtypes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "parsings", :force => true do |t|
     t.string   "url"

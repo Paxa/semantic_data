@@ -43,4 +43,14 @@ window.addEvent('domready', function() {
     param: rails.getCsrf('param')
   };
   rails.applyEvents();
+  
+  $$('.example_code a[data-format]').addEvent('click', function(e) {
+    e.stop();
+    var a = e.target;
+    var block = a.getParent('.example_code');
+    
+    block.getElements('.tabs li.active').removeClass('active');
+    a.getParent('li').addClass('active');
+    block.set('format', a.get('data-format'));
+  });
 });

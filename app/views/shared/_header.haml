@@ -9,7 +9,8 @@
       %li>= link_to "Microdata to RSS", rss_path
       %li>= link_to "External resources", external_resources_path
       %li>= link_to "Blog", posts_path
-      %li>= link_to raw("Projects <i>(New!)</i>"), projects_path
+      %li>= link_to raw("Projects"), projects_path
+      %li>= link_to raw("Examples <i>(New!)</i>"), examples_path
 
 - flash.each do |ftype, message|
   .flash{:class => ftype}>= message

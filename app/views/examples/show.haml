@@ -18,7 +18,7 @@
   .description= raw @example.description
   
   - for code in @example.source_codes
-    = render "examples/code", code: code, example: @example
+    = render "examples/code", code: Rails.root.join(code), example: @example
     
   %footer
     Created at

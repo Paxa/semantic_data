@@ -13,7 +13,7 @@ class Example < ActiveRecord::Base
     example.description = Markuped.render('1.md', meta['description'])
     example.created_at = Time.parse(meta['date'])
     
-    example.source_codes = source_codes.map {|f| (dir + f).to_s }
+    example.source_codes = source_codes.map {|f| (dir + f).to_s.sub(Rails.root.to_s, "") }
     
     puts((example.new_record? ? "Creating" : "Updating") + " example #{example.link}")
     example.save

@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
       @error_message = case e
         when URI::InvalidURIError then "Invalid url"
         when SocketError then "nodename nor servname provided, or not known"
-        when OpenURI::HTTPError, Patron::ConnectionFailed then e.message
+        when OpenURI::HTTPError, Patron::ConnectionFailed, Patron::Error then e.message
         when Timeout::Error, Patron::TimeoutError then "Timeout error"
         when Errno::ENOENT, Patron::HostResolutionError then "Host unreachable"
         else "Unknown error"

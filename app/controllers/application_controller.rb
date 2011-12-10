@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
   
   def authenticate_with_http!
     authenticate_or_request_with_http_basic do |username, password|
-      username == "Pavel" && password == "12345"
+      username == "Pavel" && Digest::MD5.hexdigest(password) == "ffef23dc7b4c490cb7429b425dcd6716"
     end
   end
   

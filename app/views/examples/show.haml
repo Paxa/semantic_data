@@ -23,3 +23,5 @@
   %footer
     Created at
     = time_tag @example.created_at, format: :date
+    
+  = raw disqus_thread show_powered_by: false, developer: Rails.env.development?, account: 'microdatatools'

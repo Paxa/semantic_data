@@ -41,7 +41,7 @@ class MidaParser
   end
   
   def extract_links(html, url)
-    uri = URI::parse(url)
+    uri = URI::parse(URI.encode(url))
     found_links = Linker.extract(html, url).uniq
     filter_regex = %r{://([^/]*)#{Regexp.escape uri.host}(:#{uri.port})?/}
     found_links.select! {|link| link =~ filter_regex && !@found_urls.include?(link)}

@@ -46,7 +46,7 @@ module Http
   end
 
   def http_request(method, url, data = nil, options = {})
-    url = url.to_s
+    url = URI.escape(url.to_s)
     slash_pos = url.index('/', 'http://'.size + 1) || url.size
     host = url[0, slash_pos]
     path = url[slash_pos, url.size - slash_pos]

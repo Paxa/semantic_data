@@ -18,7 +18,7 @@ section.window.example
     > li
       :list-style-type none
       > span
-        :background-color #FFFFC7
+        :background-color #ffffd0
         :padding 1px 4px
         :line-height 1.5em
     > li + li
@@ -28,19 +28,34 @@ section.window.example
     :margin 1.5em 0
     
   > footer
+    :margin-top 1em
     +children-inline
     > time
       :color #003D00
+      
+  > section.web_examples
+    :margin .75em 0
+    > h3
+      :font-size 1.2em
+    > ul
+      :margin-top .5em
     
 section.window.examples
   > h1
     :margin-bottom 1.2em
     
   > article
+    :margin-bottom 1em
     > h3
       :font-size 1.1em
       :line-height 1.7em
     > ul
       :color #444
+      :margin .2em 0
+      +children-inline
+      > li
+        :background-color #ffffd0
+        :padding 1px 4px
+        
     > time
       :color #003D00

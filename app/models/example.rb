@@ -1,6 +1,7 @@
 class Example < ActiveRecord::Base
   serialize :itemtypes
   serialize :source_codes
+  serialize :pages
   
   def self.load_from_fs(dir)
     meta = YAML::load(dir.join('info.yml').read)
@@ -10,6 +11,7 @@ class Example < ActiveRecord::Base
     
     example.title = meta['title']
     example.itemtypes = meta['itemtypes']
+    example.pages = meta['pages']
     example.description = Markuped.render('1.md', meta['description'])
     example.created_at = Time.parse(meta['date'])
     

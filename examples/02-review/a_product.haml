@@ -1,0 +1,17 @@
+%section[Mida(:Product)]
+  %h1[:name] Arm & Hammer Advanced Whitening
+  
+  %article[Mida(:Review), :reviews]
+    %header
+      = time_tag Time.parse("2011-10-21"), :format => :date, :itemprop => "datePublished"
+
+      %span[Mida(:Rating), :reviewRating]
+        %meta[:ratingValue]{:content => 4}
+        = image_tag "4_star_filled.png", alt: "4.0/5.0"
+
+      .author[Mida(:Person), :author]
+        %span[:name] Barry White
+        
+      .body[:reviewBody]
+        I wasn't convinced that this would work, but I have to say the results were very good.
+        After about two weeks I could see the difference and several months on, I am very happy with the results.

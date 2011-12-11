@@ -35,4 +35,4 @@
         - for post in Post.latest
           %li
             = link_to post.title, post
-            (#{time_tag(post.published_at)})
+            (#{time_tag(post.published_at, :format => :date)})

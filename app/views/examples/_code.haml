@@ -1,6 +1,7 @@
 - source = File.read(code)
 - rendered = render_haml_for_snippet(code.to_s)
 %section.example_code{:format => "html"}
+  %h4= code.basename.to_s.sub(".haml", ".html")
   %menu
     %ul.tabs
       %li.active>= link_to "HTML", '#', 'data-format' => 'html'

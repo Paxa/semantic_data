@@ -1,0 +1,11 @@
+date: 11-12-2011
+title: Review example
+itemtypes:
+  - http://schema.org/Review
+  - http://schema.org/Rating
+  - http://schema.org/Person
+  
+description: "A review of an item - for example, a restaurant, movie, or store."
+pages:
+  - http://trustafriend.com/reviews/arm-and-hammer-advanced-whitening/
+  - http://www.mediadecay.com/album_review/yell-at-me-from-your-car/

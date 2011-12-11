@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111210064206) do
+ActiveRecord::Schema.define(:version => 20111211060621) do
 
   create_table "examples", :force => true do |t|
     t.string   "title"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20111210064206) do
     t.text     "itemtypes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "pages"
   end
 
   create_table "parsings", :force => true do |t|

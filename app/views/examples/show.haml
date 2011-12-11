@@ -19,7 +19,14 @@
   
   - for code in @example.source_codes
     = render "examples/code", code: Rails.root.join(code), example: @example
-    
+  
+  - if @example.pages.present?
+    %section.web_examples
+      %h3 Examples in a web
+      %ul
+        - for page in @example.pages
+          %li= link_to page, page, rel: "nofollow", target: "_blank"
+  
   %footer
     Created at
     = time_tag @example.created_at, format: :date

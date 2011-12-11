@@ -20,9 +20,10 @@ class ParserController < ApplicationController
     end
     
     if parsing = Parsing.where(:url => params[:url]).first
+      parsing.update_attributes(result: content, items_count: @doc.items.size)
       parsing.touch
     else
-      parsing = Parsing.create(:url => params[:url], :result => content, :items_count => @doc.items.size)
+      parsing = Parsing.create(url: params[:url], result: content, items_count: @doc.items.size)
     end
     
     respond_to do |format|

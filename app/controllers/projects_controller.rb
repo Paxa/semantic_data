@@ -15,7 +15,7 @@ class ProjectsController < ApplicationController
     @project.status = "new"
     
     if @project.save
-      redirect_to :projects, notice: "Project suggested, thank you!"
+      redirect_to(params[:return_to] || :projects, notice: "Project suggested, thank you!")
     else
       render :new
     end
@@ -31,7 +31,7 @@ class ProjectsController < ApplicationController
   end
   
   def destroy
-    @projects.destroy
+    @project.destroy
     redirect_to :projects, notice: "Destroyed!"
   end
   

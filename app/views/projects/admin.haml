@@ -1,6 +1,13 @@
 %section.admin
   %h2 Projects admin
   
+  %section.add_form
+    = form_for Project.new, url: projects_path(return_to: admin_projects_path) do |f|
+      %p
+        = f.label :url
+        = f.url_field :url, style: "width: 400px"
+        = f.submit "Add"
+  
   %table
     %thead
       %tr

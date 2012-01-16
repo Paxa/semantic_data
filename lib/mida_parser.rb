@@ -10,7 +10,9 @@ class MidaParser
     links = [@project.url]
     @found_urls = [@project.url]
     @pages_scanned = 0
-
+    
+    get_description!
+    
     begin
       @levels.times do |ln|
         new_links = []
@@ -19,6 +21,10 @@ class MidaParser
           @pages_scanned += 1
           new_links.push *extract_links(html, link)
           parse_for_microdata(html, link)
+          
+          if @pages_scanned > 0 && @pages_scanned % 100 == 0
+            @project.update_attribute(:pages_scanned, @pages_scanned)
+          end
         end
       
         links = new_links
@@ -28,7 +34,6 @@ class MidaParser
       puts e.backtrace
     end
     @project.update_attribute(:pages_scanned, @pages_scanned)
-    get_description!
     
     @project.item_types.to_s.split(" ")
   end

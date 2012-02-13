@@ -1,0 +1,26 @@
+- @page_title = "Parsing history"
+
+%section.window.history
+  %h1 Parsing history
+  
+  - last_date = Time.now + 1.week
+  
+  %ul
+    - for parsing in @parsings
+      - if last_date - parsing.updated_at  > 1.day
+        - last_date = parsing.updated_at.beginning_of_day
+        %time{:datetime => time_to_iso8601(last_date) }>
+          - if last_date.today?
+            Today
+          - else
+            = "#{time_ago_in_words last_date} ago"
+      %li
+        = link_to parsing.url, parsing.url, :target => "_blank", :rel => "nofollow"
+        %span<
+          (
+          %a{:href => get_items_path(:url => parsing.url), :rel => "nofollow"}<>
+            = %{#{parsing.items_count} #{parsing.items_count > 1 ? "items" : "item"}}
+          )
+        
+        - if Project.where(:url => parsing.url).present?
+          %strong ✓ Added to projects

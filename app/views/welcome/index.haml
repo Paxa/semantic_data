@@ -20,13 +20,13 @@
       %ul
         - for parsing in @last_requests
           %li
-            = link_to parsing.url, parsing.url, :target => "_blank", :rel => "nofollow"
+            = link_to parsing.url, parsing.url, target: "_blank", rel: "nofollow"
             %span<
               (
-              %a{:href => get_items_path(:url => parsing.url), :rel => "nofollow"}<>
+              %a{:href => get_items_path(url: parsing.url), rel: "nofollow"}<>
                 = %{#{parsing.items_count} #{parsing.items_count > 1 ? "items" : "item"}}
               )
-
+      = link_to "See history", history_path, class: 'history_link'
     %aside>
       %span.knowlage &bull;
       %h3 Articles

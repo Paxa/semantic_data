@@ -35,9 +35,11 @@ SemanticDatas::Application.routes.draw do
   
   get "admin" => "welcome#admin"
   get "external_resources", :to => "welcome#external_resources"
+  get 'history', to: "welcome#history"
   
   get "get_items", :to => "parser#get_items"
   get "parser/parse_url", :to => "parser#parse_url"
+  post "parser/parse_content", :to => "parser#parse_content"
 
 end
 

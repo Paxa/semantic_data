@@ -1,6 +1,15 @@
+require "addressable/uri"
+
 module Http
   extend self
   USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1; rv:5.0) Gecko/20100101 Firefox/5.0'
+
+  def normalize_url(url)
+    uri = Addressable::URI.parse(url)
+    uri.path.sub!(%r{/$}, '') if uri.path != "/"
+    uri.path = "/" if uri.path == ""
+    uri.to_s
+  end
 
   def get(url, options = {})
     resp = http_request(:get, url, nil, options)

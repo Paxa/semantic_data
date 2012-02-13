@@ -1,4 +1,6 @@
 require "base64"
+require "sass/plugin"
+
 module Sass::Script::Functions
   
   def file_mime_type(ext)

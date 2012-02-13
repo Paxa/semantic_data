@@ -5,6 +5,8 @@ class Project < ActiveRecord::Base
   
   scope :approved, where(status: 'approved')
   
+  before_validation :normalize_url
+
   #validates_format_of :url, without: URI::regexp(%w(http https)), message: "url does not looks to be valid url"
   validates_format_of :url, with: /https?:\/\/.{4,}/, message: "url does not looks to be valid url"
   validates_uniqueness_of :url
@@ -18,5 +20,9 @@ class Project < ActiveRecord::Base
   
   def parse
     MidaParser.new(self).parse!
+  end
+
+  def normalize_url
+    self.url = Http.normalize_url(self.url)
   end
 end

@@ -125,11 +125,23 @@ char* format_url(char *s1, int len, char *base_url) {
         len -= 3;
       }
       
-      attr = (char *)malloc(d_size + len + 1);
+      if (s1[0] != '/') {
+        attr = (char *)malloc(d_size + len + 2);
+      } else {
+        attr = (char *)malloc(d_size + len + 1);
+      }
     }
     
     memmove(attr, base_url, d_size);
-    memmove(attr + d_size, s1, len);
+
+    if (s1[0] != '/') {
+      len += 1;
+      attr[d_size] = '/';
+      memmove(attr + d_size + 1, s1, len);
+    } else {
+      memmove(attr + d_size, s1, len);
+    }
+
     attr[d_size + len] = '\0';
   }
   return attr;

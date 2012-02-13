@@ -7,7 +7,7 @@
   
   %ul
     - for parsing in @parsings
-      - if last_date - parsing.updated_at  > 1.day
+      - if last_date - parsing.updated_at > 1.day
         - last_date = parsing.updated_at.beginning_of_day
         %time{:datetime => time_to_iso8601(last_date) }>
           - if last_date.today?

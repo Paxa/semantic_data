@@ -24,7 +24,7 @@ class Markuped
   def self.render(filename, content = nil)
     filename = Pathname.new(filename)
     content ||= filename.read
-    
+
     GitHub::Markup.render(filename.basename.to_s, content)
   end
 end

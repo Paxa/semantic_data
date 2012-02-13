@@ -1,20 +1,20 @@
-section.get_items    
-  > section.results  
+section.get_items
+  > section.results
     :background
       :image url('/images/backgrounds/ajax-loader.gif')
       :position center center
       :repeat no-repeat
     :height 100px
-  
+
     &.loaded
       :background none
       :height auto
 
-      
+
     > .found_items
       :white-space pre
       :word-wrap break-word
-      
+
     > p.note
       :color #444
       > code
@@ -27,7 +27,7 @@ section.get_items
         :font-family Monaco, Courier New, FreeMono, monospaced
         :display block
         +box-shadow(inset 0px 0px 3px rgba(150, 150, 150, 0.25))
-    > .url_error    
+    > .url_error
       :margin 1.5em 0
       > h3
         :font-size 2em

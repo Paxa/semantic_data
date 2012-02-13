@@ -1,6 +1,6 @@
 module Rack
   module Utils # :nodoc:
-    
+
     def universal_build(value, prefix = nil)
       case value.class.to_s
       when Array.to_s

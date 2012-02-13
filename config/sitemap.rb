@@ -24,15 +24,15 @@ SitemapGenerator::Sitemap.create do
   add examples_path, :priority => 0.7, :changefreq => 'weekly'
   add rss_path, :priority => 0.7, :changefreq => 'weekly'
   add posts_path, :priority => 0.7, :changefreq => 'weekly'
-  
+
   Post.find_each do |post|
     add "/posts/#{post.link}.html", :lastmod => post.updated_at
   end
-  
+
   Example.find_each do |example|
     add "/examples/#{example.link}", :lastmod => example.updated_at
   end
-  
+
   #
   # Add all articles:
   #

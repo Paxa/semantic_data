@@ -4,7 +4,7 @@ class MormalizeUrls < ActiveRecord::Migration
       project.normalize_url
       project.save if project.url_changed?
     end
-    
+
     Parsing.all.each do |parsing|
       parsing.normalize_url
       parsing.save if parsing.url_changed?

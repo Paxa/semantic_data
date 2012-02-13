@@ -15,12 +15,12 @@ module Http
     resp = http_request(:get, url, nil, options)
     resp.status < 400 ? resp.body : ""
   end
-  
+
   def post(url, data = nil, options = {})
     resp = http_request(:post, url, data, options)
     resp.status < 400 ? resp.body : ""
   end
-  
+
   def cache_http!
     @original_http_request ||= method(:http_request)
     instance_eval "
@@ -28,14 +28,14 @@ module Http
       caching_http_request(method, url, data, options)
     end"
   end
-  
+
   def stop_cahing_http!
     instance_eval "
     def http_request(method, url, data = nil, options = {})
       @original_http_request(method, url, data, options)
     end"
   end
-  
+
   def caching_http_request(method, url, data = nil, options = {})
     url_for_file = url.to_s.gsub(/https?:\/\//, '').sub(':', '_')
     if data
@@ -43,7 +43,7 @@ module Http
     end
     url_for_file += "_#{method.to_s.upcase}"
     file_path = Rails.root + "tmp/http_cache" + url_for_file
-    
+
     if file_path.exist?
       resp = YAML::load(file_path.read)
     else
@@ -74,7 +74,7 @@ module Http
         raise e
       end
     end
-  
+
     return resp
   end
 

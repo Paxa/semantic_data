@@ -2,14 +2,14 @@ class ParserController < ApplicationController
   def get_items
     params[:url] = "http://#{params[:url]}" unless params[:url] =~ %r{^https?:\/\/.*}
   end
-  
+
   def parse_content
     parse_response("<html><body>#{params[:html]}</body></html>", params[:page_url], false)
   end
 
   def parse_url
     content = get_content(params[:url])
-    
+
     if @error_message
       respond_to do |format|
         format.html { render :error, :layout => false }
@@ -17,7 +17,7 @@ class ParserController < ApplicationController
       end
       return
     end
-    
+
     parse_response(content, params[:url])
   end
 
@@ -26,7 +26,7 @@ class ParserController < ApplicationController
     @doc_hash = @doc.items.map do |item|
       item.to_h
     end
-    
+
     if save
       if false && parsing = Parsing.where(:url => page_url).first
         parsing.update_attributes(result: content, items_count: @doc.items.size)
@@ -35,7 +35,7 @@ class ParserController < ApplicationController
         parsing = Parsing.create(url: page_url, result: content, items_count: @doc.items.size)
       end
     end
-    
+
     respond_to do |format|
       format.html { render :parse_url, :layout => false }
       format.json { render :text => Yajl::Encoder.encode(@doc_hash), :content_type => "application/json" }

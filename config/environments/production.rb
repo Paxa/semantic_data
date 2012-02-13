@@ -44,6 +44,11 @@ SemanticDatas::Application.configure do
   # the I18n.default_locale when a translation can not be found)
   config.i18n.fallbacks = true
 
+  config.middleware.use ExceptionNotifier,
+      :email_prefix => "[Semantic datas get better]",
+      :sender_address => %{"notifier" <notifier@shambhu.com>},
+      :exception_recipients => %w{pavel.evst@gmail.com}
+
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 end

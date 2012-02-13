@@ -28,6 +28,8 @@ gem 'github-markup', require: false
 gem 'pygments.rb', require: false
 gem 'disqus'
 
+gem 'exception_notification'
+
 group :production do
   gem 'therubyracer'
 end

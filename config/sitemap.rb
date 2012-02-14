@@ -18,7 +18,8 @@ SitemapGenerator::Sitemap.create do
   #
   # Add '/articles'
   #
-  add root_path, :priority => 0.7, :changefreq => 'hourly'
+  #add root_path, :priority => 0.7, :changefreq => 'hourly'
+  
   add projects_path, :priority => 0.7, :changefreq => 'hourly'
   add external_resources_path, :priority => 0.7, :changefreq => 'weekly'
   add examples_path, :priority => 0.7, :changefreq => 'weekly'

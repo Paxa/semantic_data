@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120213054958) do
+ActiveRecord::Schema.define(:version => 20120215080335) do
+
+  create_table "detected_sites", :force => true do |t|
+    t.string   "url"
+    t.string   "user_ip"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "examples", :force => true do |t|
     t.string   "title"

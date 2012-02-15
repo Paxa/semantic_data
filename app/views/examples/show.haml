@@ -1,9 +1,9 @@
 - @body_itemtype = Mida(:WebPage)
-- @page_title = "Examples: #{@example.title}"
+- @page_title = "Microdata Examples: #{@example.title}"
 
 %section.window.example
-  .breadcrumbs[:breadcrumb]
-    = link_to "Examples", examples_path
+  .breadcrumbs
+    = link_to "Examples", examples_path, itemprop: 'breadcrumb'
     = "=>"
     
   %h1[:name]= @example.title

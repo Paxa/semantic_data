@@ -1,4 +1,4 @@
-!!! 5
+<!DOCTYPE html>
 %html
   %head
     %title= page_title("Microdata tools")
@@ -23,11 +23,10 @@
           ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
           var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
-
-  %body[@body_itemtype]
+      
+  %body
     .header_bg
-    
-    #container
+    #container[@body_itemtype]
       = render 'shared/header'
       = yield
       = render 'shared/footer'

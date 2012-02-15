@@ -35,7 +35,6 @@ SemanticDatas.Application = new LSD.Document({
   }
 });
 
-
 window.addEvent('domready', function() {
   $$('form[data-remote="true"], a[data-remote="true"], input[data-remote="true"], a[data-method][data-remote!=true]').removeEvents('click');
   rails.csrf = {
@@ -43,7 +42,7 @@ window.addEvent('domready', function() {
     param: rails.getCsrf('param')
   };
   rails.applyEvents();
-  
+
   $$('.example_code a[data-format]').addEvent('click', function(e) {
     e.stop();
     var a = e.target;
@@ -52,5 +51,9 @@ window.addEvent('domready', function() {
     block.getElements('.tabs li.active').removeClass('active');
     a.getParent('li').addClass('active');
     block.set('format', a.get('data-format'));
+  });
+
+  $$('a.safe').each(function(a) {
+    a.href = a.get('data-href');
   });
 });

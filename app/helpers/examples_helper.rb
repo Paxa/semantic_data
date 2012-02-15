@@ -27,7 +27,7 @@ module ExamplesHelper
   def render_haml_for_snippet(file)
     orig = Haml::Template.options[:ugly]
     Haml::Template.options[:ugly] = false
-    result = controller.render_to_string(file, layout: false)
+    result = ApplicationController.new.render_to_string(file, layout: false)
     Haml::Template.options[:ugly] = orig
     result
   end

@@ -21,6 +21,7 @@ SitemapGenerator::Sitemap.create do
   #add root_path, :priority => 0.7, :changefreq => 'hourly'
   
   add projects_path, :priority => 0.7, :changefreq => 'hourly'
+  add history_path, :priority => 0.7, :changefreq => 'hourly'
   add external_resources_path, :priority => 0.7, :changefreq => 'weekly'
   add examples_path, :priority => 0.7, :changefreq => 'weekly'
   add rss_path, :priority => 0.7, :changefreq => 'weekly'

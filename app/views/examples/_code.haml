@@ -9,7 +9,7 @@
       %li>= link_to "Items JSON", '#', 'data-format' => 'parsed'
     
     %aside
-      = image_tag "icons/tools.png"
+      = image_tag "icons/tools.png", alt: 'Tools'
       = link_to "Raw HTML", raw_code_example_path(example, code), target: "_blank"
       = link_to "Test with rich-snippets tool", richsnippets_url(raw_code_example_path(example, code)), target: "_blank"
 

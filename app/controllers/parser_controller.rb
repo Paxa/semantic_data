@@ -1,10 +1,11 @@
 class ParserController < ApplicationController
+  protect_from_forgery except: [:parse_content]
   def get_items
     params[:url] = "http://#{params[:url]}" unless params[:url] =~ %r{^https?:\/\/.*}
   end
 
   def parse_content
-    parse_response("<html><body>#{params[:html]}</body></html>", params[:page_url], false)
+    parse_response("<!DOCTYPE html><html><body>#{params[:html]}</body></html>", params[:page_url], false, true)
   end
 
   def parse_url
@@ -21,7 +22,7 @@ class ParserController < ApplicationController
     parse_response(content, params[:url])
   end
 
-  def parse_response(content, page_url, save = true)
+  def parse_response(content, page_url, save = true, formating = false)
     @doc = Mida::Document.new(content, page_url)
     @doc_hash = @doc.items.map do |item|
       item.to_h
@@ -38,7 +39,13 @@ class ParserController < ApplicationController
 
     respond_to do |format|
       format.html { render :parse_url, :layout => false }
-      format.json { render :text => Yajl::Encoder.encode(@doc_hash), :content_type => "application/json" }
+      format.json do
+        if formating
+          render :raw_formated, :layout => false
+        else
+          render :text => Yajl::Encoder.encode(@doc_hash), :content_type => "application/json"
+        end
+      end
     end
   end
 end

@@ -1,0 +1,23 @@
+%section.window.history
+  %h1 Detected
+  
+  - last_date = Time.now + 1.week
+  
+  %ul
+    - for host in @hosts
+      - if last_date - host.updated_at > 1.day
+        - last_date = host.updated_at.beginning_of_day
+        %time{:datetime => time_to_iso8601(last_date) }>
+          - if last_date.today?
+            Today
+          - else
+            = "#{time_ago_in_words last_date} ago"
+      %li
+        = link_to host.url, host.url, target: "_blank", rel: "nofollow"
+        %span<
+          (
+          %a.safe{data: {href: get_items_path(:url => host.url)}, rel: "nofollow"}<> parse
+          )
+        
+        - if Project.where(:url => host.url).present?
+          %strong ✓ Added to projects

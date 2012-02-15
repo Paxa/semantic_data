@@ -25,8 +25,11 @@ gem 'addressable'
 gem 'uglifier', require: false
 gem "redcarpet", "2.0", require: false
 gem 'github-markup', require: false
-gem 'pygments.rb', require: false
+gem 'pygments.rb', git: 'git://github.com/abevoelker/pygments.rb.git', ref: '3fdd924dac', require: false
+gem "ffi", "~> 1.0.11"
 gem 'disqus'
+
+gem 'kaminari'
 
 gem 'exception_notification'
 

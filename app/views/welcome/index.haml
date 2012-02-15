@@ -23,7 +23,7 @@
             = link_to parsing.url, parsing.url, target: "_blank", rel: "nofollow"
             %span<
               (
-              %a{:href => get_items_path(url: parsing.url), rel: "nofollow"}<>
+              %a.safe{data: {href: get_items_path(url: parsing.url)}, rel: "nofollow"}<>
                 = %{#{parsing.items_count} #{parsing.items_count > 1 ? "items" : "item"}}
               )
       = link_to "See history", history_path, class: 'history_link'

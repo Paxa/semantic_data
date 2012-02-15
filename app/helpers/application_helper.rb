@@ -43,6 +43,6 @@ module ApplicationHelper
     options_map[:indent] = opts[:indent] if opts.has_key?(:indent)
     json = Yajl::Encoder.encode(obj, options_map)
 
-    raw Hightlighted.render(json, 'javascript')
+    raw Hightlighted.render(json, 'json')
   end
 end

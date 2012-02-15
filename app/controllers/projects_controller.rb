@@ -2,6 +2,8 @@ class ProjectsController < ApplicationController
   before_filter :find_project
   before_filter :authenticate_with_http!, :only => [:admin, :edit, :update, :destroy, :set_status, :run_parser]
 
+  protect_from_forgery except: [:detected]
+
   def index
     @projects = Project.approved.all
   end
@@ -15,6 +17,9 @@ class ProjectsController < ApplicationController
     @project.status = "new"
 
     if @project.save
+      if params[:run_parser] && session[:auth]
+        @project.run_parser!
+      end
       redirect_to(params[:return_to] || :projects, notice: "Project suggested, thank you!")
     else
       render :new
@@ -30,9 +35,14 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def detected
+    DetectedSite.new(url: params[:host], user_ip: request.remote_ip).save
+    render json: 'ok'
+  end
+
   def destroy
     @project.destroy
-    redirect_to :projects, notice: "Destroyed!"
+    redirect_to admin_projects_path, notice: "Destroyed!"
   end
 
   def set_status
@@ -41,7 +51,7 @@ class ProjectsController < ApplicationController
   end
 
   def run_parser
-    Rails.bg_runner "Project.find(#{@project.id}).parse"
+    @project.run_parser!
     redirect_to admin_projects_path, notice: "Parsing started"
   end
 

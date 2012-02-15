@@ -22,6 +22,10 @@ class Project < ActiveRecord::Base
     MidaParser.new(self).parse!
   end
 
+  def run_parser!
+    Rails.bg_runner "Project.find(#{self.id}).parse"
+  end
+
   def normalize_url
     self.url = Http.normalize_url(self.url)
   end

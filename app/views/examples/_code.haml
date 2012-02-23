@@ -7,6 +7,7 @@
       %li.active>= link_to "HTML", '#', 'data-format' => 'html'
       %li>= link_to "HAML", '#', 'data-format' => 'haml'
       %li>= link_to "Items JSON", '#', 'data-format' => 'parsed'
+      %li>= link_to "Preview", '#', 'data-format' => 'preview'
     
     %aside
       = image_tag "icons/tools.png", alt: 'Tools'
@@ -19,3 +20,5 @@
     = raw Hightlighted.render(rendered, 'html')
   .parsed
     = parse_example_code(raw_code_example_path(example, code), rendered)
+  .preview
+    = raw rendered

@@ -1,0 +1,30 @@
+date: 23-02-2012
+title: Breadcrumb example
+itemtypes:
+  - http://schema.org/WebPage
+  - http://data-vocabulary.org/Breadcrumb
+  
+description: |
+  A breadcrumb trail is a set of links (breadcrumbs) that can help a user understand and navigate your site's hierarchy.
+  Pages can have more than one breadcrumb trail. For example:
+      
+      Books &gt; Authors &gt; Stephen King
+      Books &gt; Fiction &gt; Horror
+  
+  This is modeled on the data-vocabulary.org microdata syntax example on Google:
+  [http://support.google.com/webmasters/bin/answer.py?answer=185417](http://support.google.com/webmasters/bin/answer.py?answer=185417)
+  
+  There are 2 vocabularies what can describe breadcrumbs: http://schema.org/WebPage and 
+  http://data-vocabulary.org/Breadcrumb
+  
+  If you read the specification (http://schema.org/WebPage) the Expected Type for
+  "breadcrumb" is text, so it doesn't really matter if it's a link or
+  not. Semantically, a breadcrumb is really only a category marker and it
+  shouldn't matter if it's a link or not. It's need to understand where you 
+  are now. In modern uses, it is hyperlinked for usability, but technically, it 
+  doesn't need to be linked for a human or bot to parse out the categorization structure.
+  
+  
+pages:
+  - http://trustafriend.com/reviews/arm-and-hammer-advanced-whitening/
+  - http://www.mediadecay.com/album_review/yell-at-me-from-your-car/

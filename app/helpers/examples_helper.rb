@@ -16,7 +16,7 @@ module ExamplesHelper
   def parse_example_code(path, rendered)
     wrapped = "<html><head></head><body>#{rendered}</body></html>"
 
-    doc = Mida::Document.new(wrapped, "http://#{HOST}#{path}")
+    doc = Mida::Document.new(wrapped, "http://#{Rails.env.production? ? HOST : 'example.com'}#{path}")
     doc_hash = doc.items.map do |item|
       item.to_h
     end
@@ -27,7 +27,7 @@ module ExamplesHelper
   def render_haml_for_snippet(file)
     orig = Haml::Template.options[:ugly]
     Haml::Template.options[:ugly] = false
-    result = ApplicationController.new.render_to_string(file, layout: false)
+    result = ApplicationController.new.render_to_string(file.sub(/\.haml$/, ''), handlers: [:haml], layout: false)
     Haml::Template.options[:ugly] = orig
     result
   end

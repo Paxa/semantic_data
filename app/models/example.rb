@@ -12,7 +12,7 @@ class Example < ActiveRecord::Base
     example.title = meta['title']
     example.itemtypes = meta['itemtypes']
     example.pages = meta['pages']
-    example.description = Markuped.render('1.md', meta['description'])
+    example.description = Markuped.render('1.md', CGI.unescapeHTML(meta['description']))
     example.created_at = Time.parse(meta['date'])
 
     example.source_codes = source_codes.map {|f| (dir + f).to_s.sub(Rails.root.to_s + '/', "") }

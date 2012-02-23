@@ -1,6 +1,5 @@
 section.example_code
-  :margin .75em 0
-  > .html, > .haml, >.parsed
+  > .html, > .haml, > .parsed, > .preview
     :display none
     > .highlight
       :margin 0
@@ -14,6 +13,18 @@ section.example_code
   &[format=parsed]
     > .parsed
       :display block
+  &[format=preview]
+    > .preview
+      :display block
+      :padding 10px
+      :border 1px solid #cacaca
+      :background-color #f9fff5
+      h1
+        :font-size 1.5em
+        :padding-top .5em
+        :padding-bottom .5em
+      p
+        :margin 1em 0
 
   > h4
     :margin-bottom .4em
@@ -40,8 +51,8 @@ section.example_code
           :color #4b6c8e
         &.active
           :border-color #bababa
-          :background-color #f8f8ff
-          :border-bottom 1px solid #f8f8ff
+          :background-color #f9fff5
+          :border-bottom 1px solid #f9fff5
           :margin-bottom -1px
           > a
             :color #0050a3

@@ -12,19 +12,19 @@ class Mida::Item
   end
 end
 
-class Mida::Itemprop
-  def extract_property_value
-    element = @element.name
-    if non_textcontent_element?(element)
-      attribute = NON_TEXTCONTENT_ELEMENTS[element]
-      if attribute_node = @element.attribute(attribute)
-        url_attribute?(attribute) ? make_absolute_url(attribute_node.value) : attribute_node.value
-      end
-    else
-      @element.inner_html.strip
-    end
-  end
-end
+#class Mida::Itemprop
+#  def extract_property_value
+#    element = @element.name
+#    if non_textcontent_element?(element)
+#      attribute = NON_TEXTCONTENT_ELEMENTS[element]
+#      if attribute_node = @element.attribute(attribute)
+#        url_attribute?(attribute) ? make_absolute_url(attribute_node.value) : attribute_node.value
+#      end
+#    else
+#      @element.inner_html.strip
+#    end
+#  end
+#end
 
 require "uri"
 

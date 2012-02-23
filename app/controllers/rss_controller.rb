@@ -24,7 +24,7 @@ class RssController < ApplicationController
       end
     end
 
-    @doc = Mida::Document.new(content, params[:url])
+    @doc = Mida::Document.new(content, params[:url], :content => :html)
 
     # put vocabularies back
     vocabularies.each {|v| Mida::Vocabulary.register(v) }

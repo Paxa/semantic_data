@@ -14,7 +14,7 @@ gem 'mida', git: 'git://github.com/Paxa/mida.git', ref: '5289a3be1'
 gem 'yajl-ruby', require: 'yajl'
 
 gem 'chronic_duration', git: 'git://github.com/Paxa/chronic_duration.git', ref: '8c0d0e101b'
-gem 'mida_vocabulary', "~> 0.1.2"
+gem 'mida_vocabulary', "~> 0.1.3"
 gem "green_monkey", "~> 0.1.3"
 
 gem 'sitemap_generator'

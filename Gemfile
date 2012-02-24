@@ -9,12 +9,12 @@ gem 'haml', "~>3.1"
 gem 'jsus', git: 'git://github.com/Paxa/jsus.git', ref: '7c801d4371'
 gem 'lsd_rails', '0.1.4', require: 'lsd'
 
-gem 'mida', git: 'git://github.com/Paxa/mida.git', ref: '8e9b38365'
-#gem 'mida', path: '../mida'#git: 'git://github.com/Paxa/mida.git', ref: '342f5ceab7'
+gem 'mida', git: 'git://github.com/Paxa/mida.git', ref: '5289a3be1'
+#gem 'mida', path: '../mida'
 gem 'yajl-ruby', require: 'yajl'
 
 gem 'chronic_duration', git: 'git://github.com/Paxa/chronic_duration.git', ref: '8c0d0e101b'
-gem 'mida_vocabulary', "~> 0.1.1"
+gem 'mida_vocabulary', "~> 0.1.2"
 gem "green_monkey", "~> 0.1.3"
 
 gem 'sitemap_generator'

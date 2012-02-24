@@ -18,8 +18,8 @@ GIT
 
 GIT
   remote: git://github.com/Paxa/mida.git
-  revision: 8e9b383653b95dcc483929c5733fffa67eafb1d0
-  ref: 8e9b38365
+  revision: 5289a3be11941f4698136fafddd1c2218765181a
+  ref: 5289a3be1
   specs:
     mida (0.3.4)
       mida_vocabulary (>= 0.1)
@@ -112,7 +112,7 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    mida_vocabulary (0.1.1)
+    mida_vocabulary (0.1.2)
       blankslate
     mime-types (1.17.2)
     multi_json (1.0.4)
@@ -190,7 +190,7 @@ DEPENDENCIES
   kaminari
   lsd_rails (= 0.1.4)
   mida!
-  mida_vocabulary (~> 0.1.1)
+  mida_vocabulary (~> 0.1.2)
   mysql2 (= 0.3.11)
   patron!
   pygments.rb!

@@ -1,9 +1,9 @@
-- @body_itemtype = Mida(:WebPage)
+- @body_itemtype = Mida(:Article)
 - @page_title = "Microdata Examples: #{@example.title}"
 
 %section.window.example
-  .breadcrumbs
-    = link_to "Examples", examples_path, itemprop: 'breadcrumb'
+  .breadcrumbs[Mida("http://data-vocabulary.org/Breadcrumb")]
+    = link_to '<span itemprop="title">Examples</span>'.html_safe, examples_path, itemprop: 'url'
     = "=>"
     
   %h1[:name]= @example.title
@@ -13,9 +13,9 @@
   %ul
     - for type in @example.itemtypes
       %li
-        %span= type
+        %h2= type
   
-  .description= raw @example.description
+  .description[:articleBody]= raw @example.description
   
   - for code in @example.source_codes
     = render "examples/code", code: Rails.root.join(code), example: @example
@@ -29,6 +29,6 @@
   
   %footer
     Created at
-    = time_tag @example.created_at, format: :date
+    = time_tag @example.created_at, format: :date, itemprop: 'datePublished'
     
   = raw disqus_thread show_powered_by: false, developer: Rails.env.development?, account: 'microdatatools'

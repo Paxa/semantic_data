@@ -1,0 +1,6 @@
+date: 26-02-2012
+title: Invisible <meta> example
+itemtypes:
+  - http://schema.org/Offer
+description: |
+  If you want to add some information without displaying it - you can use the content attribute on the <meta> tag.

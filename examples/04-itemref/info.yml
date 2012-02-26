@@ -3,5 +3,5 @@ title: Itemref example
 itemtypes:
   - http://schema.org/Offer
 description: |
-  Itempref attribute allows you link datas from outside of itemscope element. 
+  Itempref attribute allows to link datas from outside of itemscope element by referring to the ids of element(s) containing them.
   It can be usefull to link information about currency.

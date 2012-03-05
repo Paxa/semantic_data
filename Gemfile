@@ -1,7 +1,7 @@
 source :rubygems
 
-gem 'rails', '3.2.1'
-gem 'mysql2', '0.3.11'
+gem 'rails', '3.2.2'
+gem 'mysql2'
 gem 'rake', '0.9.2.2', require: false
 gem 'sass'
 gem 'haml', "~>3.1"

@@ -17,7 +17,10 @@ class MidaParser
       @levels.times do |ln|
         new_links = []
         links.each do |link|
-          html = Http.get(link)
+          resp = Http.http_request(:get, link)
+          next if resp.status >= 400 || resp.headers["Content-Type"][0, 5] != "text/"
+          html = resp.body
+
           @pages_scanned += 1
           new_links.push *extract_links(html, link)
           parse_for_microdata(html, link)
@@ -33,6 +36,11 @@ class MidaParser
       puts e.message
       puts e.backtrace
     end
+
+    @found_urls.map {|u| u.sub(@project.url, '/') }.each do |u|
+      puts "add '#{u}', changefreq: 'daily'"
+    end
+
     @project.update_attribute(:pages_scanned, @pages_scanned)
 
     @project.item_types.to_s.split(" ")

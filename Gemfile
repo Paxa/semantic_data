@@ -1,4 +1,4 @@
-source :rubygems
+source 'https://rubygems.org'
 
 gem 'rails', '3.2.2'
 gem 'mysql2'
@@ -13,13 +13,13 @@ gem 'mida', git: 'git://github.com/Paxa/mida.git', ref: '5289a3be1'
 #gem 'mida', path: '../mida'
 gem 'yajl-ruby', require: 'yajl'
 
-gem 'chronic_duration', git: 'git://github.com/Paxa/chronic_duration.git', ref: '8c0d0e101b'
-gem 'mida_vocabulary', "~> 0.1.3"
-gem "green_monkey", "~> 0.1.3"
+#gem 'chronic_duration', git: 'git://github.com/Paxa/chronic_duration.git', ref: '8c0d0e101b'
+gem 'mida_vocabulary', "~> 0.2.2"
+gem "green_monkey" #, "~> 0.1.3"
 
 gem 'sitemap_generator'
 gem 'patron', git: 'git://github.com/toland/patron.git', ref: '6105403e5c'
-gem "edouard-rchardet", git: "git://github.com/edouard/rchardet.git", ref: "d3d0d94fb2", require: "rchardet"
+gem "rchardet" #, git: "git://github.com/edouard/rchardet.git", ref: "d3d0d94fb2", require: "rchardet"
 gem 'addressable'
 
 gem 'uglifier', require: false
@@ -34,5 +34,5 @@ gem 'kaminari'
 gem 'exception_notification'
 
 group :production do
-  gem 'therubyracer'
+  #gem 'therubyracer'
 end

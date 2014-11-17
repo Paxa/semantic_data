@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(:version => 20120215080335) do
     t.text     "description"
     t.text     "source_codes"
     t.text     "itemtypes"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.text     "pages"
   end
 
@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(:version => 20120215080335) do
     t.string   "url"
     t.text     "result"
     t.integer  "items_count"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "posts", :force => true do |t|
@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(:version => 20120215080335) do
     t.text     "body"
     t.string   "link"
     t.datetime "published_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "projects", :force => true do |t|
@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(:version => 20120215080335) do
     t.text     "item_types"
     t.string   "status"
     t.string   "source_code"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.text     "description"
     t.integer  "pages_scanned"
   end
